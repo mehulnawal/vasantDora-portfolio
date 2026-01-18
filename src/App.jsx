@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux';
 import { useSmoothScroll } from './components/hooks/useSmoothScroll';
 import { Home } from './components/home';
 import { Navbar } from './components/navbar';
+import { Footer } from './components/footer';
 
 function AnimatedRoutes() {
   const location = useLocation();
-  useSmoothScroll(); // Smooth scroll initialization
+  useSmoothScroll();
 
   return (
     <AnimatePresence mode="wait">
@@ -29,6 +30,7 @@ export default function App() {
         <Router>
           <Navbar />
           <AnimatedRoutes />
+          <Footer />
         </Router>
       </div>
     </div>
