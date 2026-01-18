@@ -5,6 +5,7 @@ import { useSmoothScroll } from './components/hooks/useSmoothScroll';
 import { Home } from './components/home';
 import { Navbar } from './components/navbar';
 import { Footer } from './components/footer';
+import { UrbanScapes } from './components/urbanScapes';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -15,7 +16,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         {/* <Route path="/about" element={<About />} /> */}
-        {/* <Route path="/portfolio" element={<Portfolio />} /> */}
+        <Route path="/portfolio" element={<UrbanScapes />} />
       </Routes>
     </AnimatePresence>
   );
