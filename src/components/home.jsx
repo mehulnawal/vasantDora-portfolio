@@ -54,7 +54,7 @@ export const Home = () => {
         if (expandedArtwork !== null) {
             setExpandedArtwork((prev) => (prev + 1) % artworks.length);
         } else {
-            setCurrentIndex((prev) => (prev + 2 >= artworks.length ? 0 : prev + 2));
+            setCurrentIndex((prev) => (prev + 1 >= artworks.length ? 0 : prev + 1));
         }
     };
 
@@ -62,7 +62,7 @@ export const Home = () => {
         if (expandedArtwork !== null) {
             setExpandedArtwork((prev) => (prev - 1 + artworks.length) % artworks.length);
         } else {
-            setCurrentIndex((prev) => (prev - 2 < 0 ? Math.max(0, artworks.length - 2) : prev - 2));
+            setCurrentIndex((prev) => (prev - 1 < 0 ? artworks.length - 1 : prev - 1));
         }
     };
 
@@ -126,7 +126,7 @@ export const Home = () => {
                             repeat: Infinity,
                             ease: "easeInOut"
                         }}
-                        className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-[#DAA520]/10 to-[#B8860B]/5 rounded-full blur-3xl"
+                        className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-[#DAA520]/10 to-[#B8860B]/5 rounded-full blur-3xl pointer-events-none"
                     />
                     <motion.div
                         animate={{
@@ -139,13 +139,13 @@ export const Home = () => {
                             repeat: Infinity,
                             ease: "easeInOut"
                         }}
-                        className="absolute bottom-40 left-20 w-80 h-80 bg-gradient-to-br from-[#8B6914]/10 to-[#DAA520]/5 rounded-full blur-3xl"
+                        className="absolute bottom-40 left-20 w-80 h-80 bg-gradient-to-br from-[#8B6914]/10 to-[#DAA520]/5 rounded-full blur-3xl pointer-events-none"
                     />
                 </>
             )}
 
-            {/* Immersive Hero Section */}
-            <section className="relative h-screen w-full flex items-end overflow-hidden">
+            {/* Immersive Hero Section - Fixed for Mobile */}
+            <section className="relative h-screen w-full flex items-end overflow-hidden mt-20 md:mt-0">
                 <motion.div
                     className="absolute inset-0 z-0"
                     style={{ scale: heroScale }}
@@ -153,13 +153,14 @@ export const Home = () => {
                     <img
                         src={clientImage}
                         alt="Vasant Dora"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    {/* Enhanced gradient for better text visibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                 </motion.div>
 
                 <motion.div
-                    className="container mx-auto px-8 pb-24 relative z-10"
+                    className="container mx-auto px-4 sm:px-6 md:px-8 pb-16 sm:pb-20 md:pb-24 relative z-10"
                     style={{ opacity: heroOpacity }}
                 >
                     <motion.div
@@ -170,16 +171,16 @@ export const Home = () => {
                     >
                         <motion.div
                             initial={{ width: 0 }}
-                            animate={{ width: "6rem" }}
+                            animate={{ width: "4rem" }}
                             transition={{ duration: 1.2, delay: 0.5 }}
-                            className={`h-1 mb-8 bg-gradient-to-r ${accentGradient}`}
+                            className={`h-1 mb-6 sm:mb-8 bg-gradient-to-r ${accentGradient}`}
                         />
 
                         <motion.span
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.8 }}
-                            className="text-sm tracking-[0.4em] uppercase mb-4 block text-white/90 font-light"
+                            className="text-xs sm:text-sm tracking-[0.3em] sm:tracking-[0.4em] uppercase mb-3 sm:mb-4 block text-white font-medium drop-shadow-lg"
                         >
                             Contemporary Painter
                         </motion.span>
@@ -188,7 +189,7 @@ export const Home = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.2, delay: 1 }}
-                            className="text-7xl md:text-9xl font-serif tracking-tight mb-6 text-white leading-none"
+                            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif tracking-tight mb-4 sm:mb-6 text-white leading-none drop-shadow-2xl"
                         >
                             Vasant Dora
                         </motion.h1>
@@ -197,7 +198,7 @@ export const Home = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 1, delay: 1.4 }}
-                            className="text-xl md:text-2xl font-light text-white/90 leading-relaxed max-w-2xl"
+                            className="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-white leading-relaxed max-w-2xl drop-shadow-lg"
                         >
                             Exploring colour as play — where light, tone, and abstraction unfold through instinct and intuition.
                         </motion.p>
@@ -205,8 +206,8 @@ export const Home = () => {
                 </motion.div>
             </section>
 
-            {/* Leela of Colors Section - Enhanced */}
-            <section className="container mx-auto px-8 py-40 relative">
+            {/* Leela of Colors Section - Responsive */}
+            <section className="container mx-auto px-4 sm:px-6 md:px-8 py-20 sm:py-32 md:py-40 relative">
                 {/* Animated decorative element */}
                 <motion.div
                     animate={{
@@ -218,39 +219,39 @@ export const Home = () => {
                         repeat: Infinity,
                         ease: "linear"
                     }}
-                    className={`absolute top-20 right-20 w-64 h-64 ${isDark ? 'bg-[#D4AF37]/5' : 'bg-[#DAA520]/8'} rounded-full blur-3xl`}
+                    className={`absolute top-10 sm:top-20 right-10 sm:right-20 w-32 h-32 sm:w-64 sm:h-64 ${isDark ? 'bg-[#D4AF37]/5' : 'bg-[#DAA520]/8'} rounded-full blur-3xl pointer-events-none`}
                 />
 
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-50px" }}
                     variants={containerVariants}
                 >
                     <motion.div
                         variants={itemVariants}
-                        className="flex items-center gap-8 mb-20"
+                        className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 mb-12 sm:mb-16 md:mb-20"
                     >
                         <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: "100%" }}
                             transition={{ duration: 1.2, delay: 0.3 }}
                             viewport={{ once: true }}
-                            className={`h-px flex-1 bg-gradient-to-r ${isDark ? 'from-transparent to-[#2A2A2A]' : 'from-transparent to-[#C4B5A0]'}`}
+                            className={`hidden sm:block h-px flex-1 bg-gradient-to-r ${isDark ? 'from-transparent to-[#2A2A2A]' : 'from-transparent to-[#C4B5A0]'}`}
                         />
-                        <h2 className="text-6xl md:text-7xl font-serif tracking-tight">Leela of Colors</h2>
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight text-center sm:text-left">Leela of Colors</h2>
                         <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: "100%" }}
                             transition={{ duration: 1.2, delay: 0.3 }}
                             viewport={{ once: true }}
-                            className={`h-px flex-1 bg-gradient-to-l ${isDark ? 'from-transparent to-[#2A2A2A]' : 'from-transparent to-[#C4B5A0]'}`}
+                            className={`hidden sm:block h-px flex-1 bg-gradient-to-l ${isDark ? 'from-transparent to-[#2A2A2A]' : 'from-transparent to-[#C4B5A0]'}`}
                         />
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 gap-16 max-w-7xl mx-auto">
+                    <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 max-w-7xl mx-auto">
                         {/* Left Side Text */}
-                        <div className="space-y-8">
+                        <div className="space-y-6 sm:space-y-8">
                             <motion.div
                                 variants={itemVariants}
                                 whileHover={{
@@ -260,9 +261,9 @@ export const Home = () => {
                                         : "0 25px 50px -12px rgba(139, 105, 20, 0.15)"
                                 }}
                                 transition={{ duration: 0.4 }}
-                                className={`${cardBg} backdrop-blur-sm p-10 rounded-sm border ${borderColor} shadow-2xl`}
+                                className={`${cardBg} backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-sm border ${borderColor} shadow-2xl`}
                             >
-                                <p className="text-lg leading-loose font-light text-justify">
+                                <p className="text-base sm:text-lg leading-relaxed sm:leading-loose font-light text-justify">
                                     There is an ancient Sanskrit word
                                     "Leela", which means "play" or
                                     "sport". Leela is both , delight and
@@ -291,9 +292,9 @@ export const Home = () => {
                                         : "0 25px 50px -12px rgba(139, 105, 20, 0.15)"
                                 }}
                                 transition={{ duration: 0.4 }}
-                                className={`${cardBg} backdrop-blur-sm p-10 rounded-sm border ${borderColor} shadow-2xl`}
+                                className={`${cardBg} backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-sm border ${borderColor} shadow-2xl`}
                             >
-                                <p className="text-lg leading-loose font-light text-justify">
+                                <p className="text-base sm:text-lg leading-relaxed sm:leading-loose font-light text-justify">
                                     As an artist , my art is at a primal
                                     level manifestation of play with
                                     colours caught in the matrix of its
@@ -306,7 +307,7 @@ export const Home = () => {
                         </div>
 
                         {/* Right Side Text */}
-                        <div className="space-y-8">
+                        <div className="space-y-6 sm:space-y-8">
                             <motion.div
                                 variants={itemVariants}
                                 whileHover={{
@@ -316,9 +317,9 @@ export const Home = () => {
                                         : "0 25px 50px -12px rgba(139, 105, 20, 0.15)"
                                 }}
                                 transition={{ duration: 0.4 }}
-                                className={`${cardBg} backdrop-blur-sm p-10 rounded-sm border ${borderColor} shadow-2xl`}
+                                className={`${cardBg} backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-sm border ${borderColor} shadow-2xl`}
                             >
-                                <p className="text-lg leading-loose font-light text-justify">
+                                <p className="text-base sm:text-lg leading-relaxed sm:leading-loose font-light text-justify">
                                     More often than not the
                                     figurative or subjective content
                                     is present as an allegorical or
@@ -345,9 +346,9 @@ export const Home = () => {
                                         : "0 25px 50px -12px rgba(139, 105, 20, 0.15)"
                                 }}
                                 transition={{ duration: 0.4 }}
-                                className={`${cardBg} backdrop-blur-sm p-10 rounded-sm border ${borderColor} shadow-2xl`}
+                                className={`${cardBg} backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-sm border ${borderColor} shadow-2xl`}
                             >
-                                <p className="text-lg leading-loose font-light text-justify">
+                                <p className="text-base sm:text-lg leading-relaxed sm:leading-loose font-light text-justify">
                                     It is a pleasure to present and
                                     share an oeuvre of my art works
                                     in this show and catalogue.
@@ -363,101 +364,102 @@ export const Home = () => {
                 </motion.div>
             </section>
 
-            {/* Enhanced Gallery Carousel */}
-            <section className="container mx-auto px-8 pb-20">
+            {/* Enhanced Gallery Carousel - Fully Responsive */}
+            <section className="container mx-auto px-4 sm:px-6 md:px-8 pb-20 sm:pb-32">
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={containerVariants}>
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={containerVariants}
+                >
                     <motion.div
                         variants={itemVariants}
-                        className="flex items-center justify-between mb-16"
+                        className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-12 md:mb-16 gap-6"
                     >
                         <div>
                             <motion.div
                                 initial={{ width: 0 }}
-                                whileInView={{ width: "4rem" }}
+                                whileInView={{ width: "3rem" }}
                                 transition={{ duration: 1, delay: 0.3 }}
                                 viewport={{ once: true }}
-                                className={`h-1 mb-4 bg-gradient-to-r ${accentGradient}`}
+                                className={`h-1 mb-3 sm:mb-4 bg-gradient-to-r ${accentGradient}`}
                             />
-                            <h3 className="text-5xl font-serif tracking-tight">Selected Works</h3>
+                            <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif tracking-tight">Selected Works</h3>
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex gap-3 sm:gap-4">
                             <motion.button
                                 whileHover={{ scale: 1.1, rotate: -5 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={prevSlide}
-                                className={`p-4 rounded-full border-2 ${borderColor} ${cardBg} backdrop-blur-sm transition-all duration-300 shadow-lg`}
+                                className={`p-3 sm:p-4 rounded-full border-2 ${borderColor} ${cardBg} backdrop-blur-sm transition-all duration-300 shadow-lg`}
                             >
-                                <ChevronLeft size={28} />
+                                <ChevronLeft size={24} className="sm:w-7 sm:h-7" />
                             </motion.button>
                             <motion.button
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={nextSlide}
-                                className={`p-4 rounded-full border-2 ${borderColor} ${cardBg} backdrop-blur-sm transition-all duration-300 shadow-lg`}
+                                className={`p-3 sm:p-4 rounded-full border-2 ${borderColor} ${cardBg} backdrop-blur-sm transition-all duration-300 shadow-lg`}
                             >
-                                <ChevronRight size={28} />
+                                <ChevronRight size={24} className="sm:w-7 sm:h-7" />
                             </motion.button>
                         </div>
                     </motion.div>
 
-                    <div className="grid grid-cols-2 gap-12 max-w-7xl mx-auto">
+                    {/* Single image on mobile, two on desktop */}
+                    <div className="max-w-7xl mx-auto">
                         <AnimatePresence mode="wait">
-                            {artworks.slice(currentIndex, currentIndex + 2).map((artwork, i) => (
-                                <motion.div
-                                    key={artwork.id}
-                                    initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
-                                    animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                                    exit={{ opacity: 0, scale: 0.9, rotateY: 15 }}
-                                    transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                                    whileHover={{
-                                        y: -12,
-                                        boxShadow: isDark
-                                            ? "0 30px 60px -15px rgba(0, 0, 0, 0.6)"
-                                            : "0 30px 60px -15px rgba(139, 105, 20, 0.2)"
-                                    }}
-                                    className={`relative cursor-pointer overflow-hidden group ${cardBg} backdrop-blur-sm border-2 ${borderColor} shadow-2xl`}
-                                    onClick={() => setExpandedArtwork(currentIndex + i)} >
-                                    <div className="relative overflow-hidden">
-                                        <motion.img
-                                            whileHover={{ scale: 1.08 }}
-                                            transition={{ duration: 0.7 }}
-                                            src={artwork.image}
-                                            className="w-full h-[400px] object-cover"
-                                            alt={artwork.title}
-                                        />
+                            <motion.div
+                                key={currentIndex}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                                whileHover={{
+                                    y: -8,
+                                    boxShadow: isDark
+                                        ? "0 30px 60px -15px rgba(0, 0, 0, 0.6)"
+                                        : "0 30px 60px -15px rgba(139, 105, 20, 0.2)"
+                                }}
+                                className={`relative cursor-pointer overflow-hidden group ${cardBg} backdrop-blur-sm border-2 ${borderColor} shadow-2xl max-w-2xl mx-auto`}
+                                onClick={() => setExpandedArtwork(currentIndex)}
+                            >
+                                <div className="relative overflow-hidden">
+                                    <motion.img
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{ duration: 0.7 }}
+                                        src={artworks[currentIndex].image}
+                                        className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                                        alt={artworks[currentIndex].title}
+                                    />
 
-                                        {/* Info overlay on hover */}
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileHover={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.4 }}
-                                            className={`absolute inset-0 ${overlayBg} backdrop-blur-sm flex  p-8`}
-                                        >
-                                            <div>
-                                                <h4 className="text-2xl font-serif mb-2">{artwork.title}</h4>
-                                                <p className="text-sm opacity-80">{artwork.size}</p>
-                                            </div>
-                                        </motion.div>
-                                    </div>
-                                </motion.div>
-                            ))}
+                                    {/* Info overlay on hover */}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileHover={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.4 }}
+                                        className={`absolute inset-0 ${overlayBg} backdrop-blur-sm flex items-end p-6 sm:p-8`}
+                                    >
+                                        <div>
+                                            <h4 className="text-xl sm:text-2xl font-serif mb-1 sm:mb-2">{artworks[currentIndex].title}</h4>
+                                            <p className="text-sm opacity-80">{artworks[currentIndex].size}</p>
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            </motion.div>
                         </AnimatePresence>
                     </div>
                 </motion.div>
             </section>
 
-            {/* Expanded Artwork Lightbox */}
+            {/* Expanded Artwork Lightbox - Responsive */}
             <AnimatePresence>
                 {expandedArtwork !== null && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-md"
+                        className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-md p-4"
                     >
                         <motion.button
                             initial={{ opacity: 0, scale: 0.8 }}
@@ -466,9 +468,9 @@ export const Home = () => {
                             whileHover={{ scale: 1.1, rotate: 90 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setExpandedArtwork(null)}
-                            className="absolute top-8 right-8 text-white z-50"
+                            className="absolute top-4 right-4 sm:top-8 sm:right-8 text-white z-50"
                         >
-                            <X size={48} />
+                            <X size={36} className="sm:w-12 sm:h-12" />
                         </motion.button>
 
                         <motion.button
@@ -478,9 +480,9 @@ export const Home = () => {
                             whileHover={{ scale: 1.1, x: -5 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={prevSlide}
-                            className="absolute left-8 text-white z-50 p-4 rounded-full bg-white/10 backdrop-blur-sm"
+                            className="absolute left-2 sm:left-8 text-white z-50 p-2 sm:p-4 rounded-full bg-white/10 backdrop-blur-sm"
                         >
-                            <ChevronLeft size={40} />
+                            <ChevronLeft size={32} className="sm:w-10 sm:h-10" />
                         </motion.button>
 
                         <motion.button
@@ -490,36 +492,36 @@ export const Home = () => {
                             whileHover={{ scale: 1.1, x: 5 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={nextSlide}
-                            className="absolute right-8 text-white z-50 p-4 rounded-full bg-white/10 backdrop-blur-sm"
+                            className="absolute right-2 sm:right-8 text-white z-50 p-2 sm:p-4 rounded-full bg-white/10 backdrop-blur-sm"
                         >
-                            <ChevronRight size={40} />
+                            <ChevronRight size={32} className="sm:w-10 sm:h-10" />
                         </motion.button>
 
-                        <div className="container mx-auto px-16 flex items-center gap-16 max-w-7xl">
+                        <div className="container mx-auto px-4 sm:px-8 md:px-16 flex flex-col lg:flex-row items-center gap-6 sm:gap-8 md:gap-16 max-w-7xl">
                             <motion.div
                                 key={expandedArtwork}
-                                initial={{ opacity: 0, x: -50, rotateY: -10 }}
-                                animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-                                className="flex-1"
+                                className="flex-1 w-full"
                             >
                                 <img
                                     src={artworks[expandedArtwork].image}
-                                    className="w-full max-h-[85vh] object-contain shadow-2xl"
+                                    className="w-full max-h-[50vh] lg:max-h-[85vh] object-contain shadow-2xl"
                                     alt={artworks[expandedArtwork].title}
                                 />
                             </motion.div>
 
                             <motion.div
                                 key={`details-${expandedArtwork}`}
-                                initial={{ opacity: 0, x: 50 }}
-                                animate={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-                                className="w-96 text-white space-y-8"
+                                className="w-full lg:w-96 text-white space-y-6 sm:space-y-8"
                             >
                                 <motion.div
                                     initial={{ width: 0 }}
-                                    animate={{ width: "4rem" }}
+                                    animate={{ width: "3rem" }}
                                     transition={{ duration: 0.8, delay: 0.4 }}
                                     className="h-1 bg-gradient-to-r from-[#D4AF37] to-[#F4E4C1]"
                                 />
@@ -529,8 +531,8 @@ export const Home = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.5 }}
                                 >
-                                    <p className="text-sm tracking-[0.3em] uppercase opacity-60 mb-3">Artwork Details</p>
-                                    <h2 className="text-4xl font-serif mb-6 leading-tight">{artworks[expandedArtwork].title}</h2>
+                                    <p className="text-xs sm:text-sm tracking-[0.3em] uppercase opacity-60 mb-2 sm:mb-3">Artwork Details</p>
+                                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif mb-4 sm:mb-6 leading-tight">{artworks[expandedArtwork].title}</h2>
                                 </motion.div>
 
                                 <motion.div
@@ -540,13 +542,13 @@ export const Home = () => {
                                     className="space-y-4 pt-4 border-t border-white/20"
                                 >
                                     <div>
-                                        <p className="text-sm uppercase tracking-wider opacity-60 mb-2">Dimensions</p>
-                                        <p className="text-xl font-light">{artworks[expandedArtwork].size}</p>
+                                        <p className="text-xs sm:text-sm uppercase tracking-wider opacity-60 mb-2">Dimensions</p>
+                                        <p className="text-lg sm:text-xl font-light">{artworks[expandedArtwork].size}</p>
                                     </div>
 
                                     <div>
-                                        <p className="text-sm uppercase tracking-wider opacity-60 mb-2">Medium & Description</p>
-                                        <p className="text-lg font-light leading-relaxed opacity-90">
+                                        <p className="text-xs sm:text-sm uppercase tracking-wider opacity-60 mb-2">Medium & Description</p>
+                                        <p className="text-base sm:text-lg font-light leading-relaxed opacity-90">
                                             {artworks[expandedArtwork].description}
                                         </p>
                                     </div>
@@ -556,7 +558,7 @@ export const Home = () => {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.8 }}
-                                    className="pt-8"
+                                    className="pt-4 sm:pt-8"
                                 >
                                     <p className="text-xs opacity-50">
                                         {expandedArtwork + 1} of {artworks.length}
