@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    isDark: localStorage.getItem('vasant_theme') === 'dark'
+    isDark: localStorage.getItem('vasant_theme') === 'light'
 };
 
 const themeSlice = createSlice({

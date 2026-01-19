@@ -1,22 +1,19 @@
-import { Link, Outlet } from 'react-router-dom';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Sun, Moon, Menu, X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from './context/themeContext';
-import { Footer } from './footer';
 
 export const Navbar = () => {
     const isDark = useSelector((state) => state.theme.isDark);
     const dispatch = useDispatch();
+
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [portfolioOpen, setPortfolioOpen] = useState(false);
+    const [mobilePortfolioOpen, setMobilePortfolioOpen] = useState(false);
 
-    const navItems = ['Home', 'About', 'Portfolio', 'Credentials', 'Contact'];
-
-    const navBg = isDark
-        ? 'bg-[#0A0A0A]/95'
-        : 'bg-[#FAF7F2]/95';
-
+    const navBg = isDark ? 'bg-[#0A0A0A]/95' : 'bg-[#FAF7F2]/95';
     const textColor = isDark ? 'text-[#F5F5F4]' : 'text-[#2C2416]';
     const hoverColor = isDark ? 'hover:text-[#D4AF37]' : 'hover:text-[#B8860B]';
     const borderColor = isDark ? 'border-[#2A2A2A]' : 'border-[#C4B5A0]';
@@ -26,96 +23,135 @@ export const Navbar = () => {
 
     return (
         <>
+            {/* NAVBAR */}
             <motion.nav
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className={`fixed top-0 w-full z-[100] px-6 md:px-8 py-6 flex justify-between items-center ${navBg} backdrop-blur-md border-b ${borderColor} transition-all duration-500`}
+                transition={{ duration: 0.6 }}
+                className={`fixed top-0 w-full z-[100] px-6 md:px-8 py-6 flex justify-between items-center ${navBg} backdrop-blur-md border-b ${borderColor}`}
             >
-                <Link to="/" className={`text-2xl md:text-3xl font-serif font-bold tracking-tight ${textColor} relative group`}>
+                {/* LOGO */}
+                <Link
+                    to="/"
+                    className={`text-2xl md:text-3xl font-serif font-bold tracking-tight ${textColor}`}
+                >
                     Vasant Dora
-                    <motion.div
-                        className={`absolute -bottom-1 left-0 h-0.5 w-0 group-hover:w-full bg-gradient-to-r ${accentGradient} transition-all duration-500`}
-                    />
                 </Link>
 
                 <div className="flex items-center gap-6 md:gap-8">
-                    {/* Desktop Menu */}
+                    {/* DESKTOP MENU */}
                     <div className={`hidden md:flex gap-8 text-xs uppercase tracking-widest font-medium ${textColor}`}>
-                        {navItems.map((item, index) => (
-                            <motion.div
-                                key={item}
-                                initial={{ opacity: 0, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                            >
-                                <Link
-                                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                                    className={`${hoverColor} transition-colors relative group`}
-                                >
-                                    {item}
-                                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r ${accentGradient} group-hover:w-full transition-all duration-300`} />
-                                </Link>
-                            </motion.div>
-                        ))}
+                        <Link to="/" className={hoverColor}>Home</Link>
+                        <Link to="/about" className={hoverColor}>About</Link>
+
+                        {/* PORTFOLIO (DESKTOP HOVER SAFE) */}
+                        <div
+                            className="relative"
+                            onMouseEnter={() => setPortfolioOpen(true)}
+                            onMouseLeave={() => setPortfolioOpen(false)}
+                        >
+                            <button className={`flex items-center gap-1 ${hoverColor}`}>
+                                Portfolio
+                                <ChevronDown size={14} />
+                            </button>
+
+                            <AnimatePresence>
+                                {portfolioOpen && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 8 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 8 }}
+                                        transition={{ duration: 0.2 }}
+                                        className={`absolute left-0 top-full mt-4 w-56 ${navBg} border ${borderColor} shadow-xl`}
+                                    >
+                                        <Link to="/urban-scapes" className={`block px-6 py-4 ${hoverColor}`}>
+                                            Urban Scapes
+                                        </Link>
+                                        <Link to="/samsara-series" className={`block px-6 py-4 ${hoverColor}`}>
+                                            Samsara Series
+                                        </Link>
+                                        <Link to="/InspiredFigurative" className={`block px-6 py-4 ${hoverColor}`}>
+                                            Inspired Figurative
+                                        </Link>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+
+                        <Link to="/credentials" className={hoverColor}>Credentials</Link>
+                        <Link to="/contact" className={hoverColor}>Contact</Link>
                     </div>
 
-                    {/* Theme Toggle */}
+                    {/* THEME TOGGLE */}
                     <motion.button
                         whileHover={{ scale: 1.1, rotate: 15 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => dispatch(toggleTheme())}
-                        className={`p-2 rounded-full hover:bg-gradient-to-r ${isDark ? 'hover:from-[#D4AF37]/20 hover:to-[#F4E4C1]/10' : 'hover:from-[#8B6914]/10 hover:to-[#DAA520]/10'} transition-all ${textColor}`}
-                        aria-label="Toggle Theme"
+                        className={textColor}
                     >
                         {isDark ? <Sun size={20} /> : <Moon size={20} />}
                     </motion.button>
 
-                    {/* Mobile Menu Button */}
-                    <motion.button
-                        whileTap={{ scale: 0.9 }}
+                    {/* MOBILE MENU BUTTON */}
+                    <button
+                        className={`md:hidden ${textColor}`}
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className={`md:hidden p-2 ${textColor}`}
-                        aria-label="Toggle Menu"
                     >
-                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </motion.button>
+                        {mobileMenuOpen ? <X /> : <Menu />}
+                    </button>
                 </div>
             </motion.nav>
 
-            {/* Mobile Menu */}
+            {/* MOBILE MENU */}
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
-                        transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        className={`fixed top-[88px] right-0 w-full md:hidden z-[99] ${navBg} backdrop-blur-md border-b ${borderColor}`}
+                        initial={{ x: '100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '100%' }}
+                        transition={{ duration: 0.4 }}
+                        className={`fixed top-[88px] right-0 w-full z-[99] ${navBg} border-b ${borderColor}`}
                     >
                         <div className="px-6 py-8 space-y-6">
-                            {navItems.map((item, index) => (
-                                <motion.div
-                                    key={item}
-                                    initial={{ opacity: 0, x: 50 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                                >
-                                    <Link
-                                        to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className={`block text-xl font-serif ${textColor} ${hoverColor} transition-colors`}
-                                    >
-                                        {item}
-                                    </Link>
-                                    <motion.div
-                                        initial={{ width: 0 }}
-                                        animate={{ width: '3rem' }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-                                        className={`h-0.5 mt-2 bg-gradient-to-r ${accentGradient}`}
+                            <Link to="/" onClick={() => setMobileMenuOpen(false)} className={`block ${textColor}`}>Home</Link>
+                            <Link to="/about" onClick={() => setMobileMenuOpen(false)} className={`block ${textColor}`}>About</Link>
+
+                            <div>
+                                <button
+                                    onClick={() => setMobilePortfolioOpen(!mobilePortfolioOpen)}
+                                    className={`flex items-center justify-between w-full ${textColor}`} >
+                                    Portfolio
+                                    <ChevronDown
+                                        size={20}
+                                        className={`transition-transform ${mobilePortfolioOpen ? 'rotate-180' : ''} ${isDark ? 'text-[#D4AF37]' : 'text-[#8B6914]'
+                                            }`}
                                     />
-                                </motion.div>
-                            ))}
+                                </button>
+
+                                <AnimatePresence>
+                                    {mobilePortfolioOpen && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            className="ml-4 mt-4 space-y-3"
+                                        >
+                                            <Link to="/urban-scapes" onClick={() => setMobileMenuOpen(false)} className={hoverColor}>
+                                                Urban Scapes
+                                            </Link>
+                                            <Link to="/samsara-series" onClick={() => setMobileMenuOpen(false)} className={hoverColor}>
+                                                Samsara Series
+                                            </Link>
+                                            <Link to="/InspiredFigurative" onClick={() => setMobileMenuOpen(false)} className={hoverColor}>
+                                                Inspired Figurative
+                                            </Link>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+
+                            <Link to="/credentials" onClick={() => setMobileMenuOpen(false)} className={`block ${textColor}`}>Credentials</Link>
+                            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className={`block ${textColor}`}>Contact</Link>
                         </div>
                     </motion.div>
                 )}

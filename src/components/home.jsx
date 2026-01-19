@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
@@ -44,11 +44,27 @@ const artworks = [
 export const Home = () => {
     const isDark = useSelector((state) => state.theme.isDark);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [expandedArtwork, setExpandedArtwork] = useState(null);
 
     const { scrollYProgress } = useScroll();
     const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
     const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+
+    const [expandedArtwork, setExpandedArtwork] = useState(null);
+
+    useEffect(() => {
+        if (expandedArtwork !== null) {
+            // lock body scroll
+            document.body.style.overflow = 'hidden';
+        } else {
+            // restore body scroll
+            document.body.style.overflow = '';
+        }
+
+        // cleanup (important for safety)
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [expandedArtwork]);
 
     const nextSlide = () => {
         if (expandedArtwork !== null) {
@@ -145,7 +161,7 @@ export const Home = () => {
             )}
 
             {/* Immersive Hero Section - Fixed for Mobile */}
-            <section className="relative h-screen w-full flex items-end overflow-hidden mt-20 md:mt-0">
+            <section className="relative min-h-[70vh] sm:min-h-[80vh] md:h-screen w-full flex items-end overflow-hidden  md:mt-0">
                 <motion.div
                     className="absolute inset-0 z-0"
                     style={{ scale: heroScale }}
@@ -153,7 +169,7 @@ export const Home = () => {
                     <img
                         src={clientImage}
                         alt="Vasant Dora"
-                        className="w-full h-full object-cover object-center"
+                        className="w-full h-full object-contain md:object-cover object-center"
                     />
                     {/* Enhanced gradient for better text visibility */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
