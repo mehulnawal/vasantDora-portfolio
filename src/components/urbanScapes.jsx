@@ -3,16 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
-import bannerImage from '../assets/images/paintingEg1.jpg';
+// import bannerImage from '../assets/images/paintingEg1.jpg';
 import urban1 from '../assets/images/paintingEg1.jpg';
 import urban2 from '../assets/images/paintingEg2.jpg';
 import urban3 from '../assets/images/paintingEg3.jpg';
 import urban4 from '../assets/images/paintingEg4.jpg';
-// import urban5 from '../assets/images/urban5.jpg';
-// import urban6 from '../assets/images/urban6.jpg';
-// import urban7 from '../assets/images/urban7.jpg';
-// import urban8 from '../assets/images/urban8.jpg';
-// import urban9 from '../assets/images/urban9.jpg';
 
 const urbanScapesArtworks = [
     {
@@ -148,7 +143,7 @@ export const UrbanScapes = () => {
         <div className={`select-none transition-all duration-700 ${bgColor} ${textColor} min-h-screen`}>
 
             {/* Banner Section - Exact Layout from Screenshot */}
-            <section className="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
+            <section className="relative pt-50 sm:pt-60 md:pt-70 pb-16 sm:pb-20 md:pb-24">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8">
 
                     {/* Image with Title Overlay */}
@@ -156,30 +151,82 @@ export const UrbanScapes = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
-                        className="relative w-full max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20 overflow-hidden shadow-2xl"
-                    >
-                        <img
-                            src={bannerImage}
-                            alt="Urban Scapes"
-                            className="w-full h-[250px] sm:h-[350px] md:h-[400px] object-cover"
-                        />
-                        {/* Title Overlay */}
+                        className="relative w-full mx-auto mb-28 sm:mb-36 md:mb-40">
+                        {/* BIG TEXT (SECTION-WIDE) */}
+
+                        <motion.h1
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1, delay: 0.3 }}
+                            className="
+        relative z-10
+        text-center
+        whitespace-nowrap
+        leading-none
+        font-extrabold
+        text-[clamp(3rem,9vw,8rem)]
+    "
+                            style={{
+                                fontFamily: 'Brush Script MT, Segoe Script, cursive',
+                                letterSpacing: '-0.03em',
+                                transform: 'skewX(-2deg)',
+                            }}
+                        >
+
+                            <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>
+                                UR
+                            </span>
+
+                            {/* ALWAYS WHITE */}
+                            <span className="text-white">
+                                BAN SCAP
+                            </span>
+
+                            {/* CONDITIONAL COLOR */}
+                            <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>
+                                ES
+                            </span>
+                        </motion.h1>
+
+
+                        {/* SMALLER IMAGE BEHIND (ONLY COVERS MIDDLE) */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <motion.h1
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 1, delay: 0.3 }}
-                                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-2xl"
-                                style={{
-                                    fontFamily: 'Impact, Arial Black, sans-serif',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.05em'
-                                }}
-                            >
-                                Urban Scapes
-                            </motion.h1>
+                            <div className="relative w-[55%] max-w-3xl h-[220px] sm:h-[300px] md:h-[360px] overflow-hidden shadow-2xl">
+                                <img
+                                    src={urban4}
+                                    alt="Urban Scapes"
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+
+                                {/* IMAGE-COLORED TEXT (ONLY WHERE IMAGE EXISTS) */}
+                                <h1
+                                    className="
+                    absolute inset-0
+                    flex items-center justify-center
+                    whitespace-nowrap
+                    leading-none
+                    font-extrabold
+                    text-[clamp(3rem,9vw,8rem)]
+                "
+                                    style={{
+                                        fontFamily: 'Brush Script MT, Segoe Script, cursive',
+                                        letterSpacing: '-0.03em',
+                                        transform: 'skewX(-2deg)',
+
+                                        backgroundImage: `url(${urban4})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        WebkitBackgroundClip: 'text',
+                                        backgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                    }}
+                                >
+                                    URBAN&nbsp;SCAPES
+                                </h1>
+                            </div>
                         </div>
                     </motion.div>
+
 
                     {/* Text Content Below Image */}
                     <motion.div
