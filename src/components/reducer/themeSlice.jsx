@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    isDark: localStorage.getItem('vasant_theme') === 'light'
+    isLight: localStorage.getItem('vasant_theme') === 'light'
 };
 
 const themeSlice = createSlice({
@@ -9,8 +9,8 @@ const themeSlice = createSlice({
     initialState,
     reducers: {
         toggleTheme: (state) => {
-            state.isDark = !state.isDark;
-            localStorage.setItem('vasant_theme', state.isDark ? 'dark' : 'light');
+            state.isLight = !state.isLight;
+            localStorage.setItem('vasant_theme', state.isDisLight ? 'dark' : 'light');
         },
     },
 });
