@@ -16,7 +16,9 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         {/* <Route path="/about" element={<About />} /> */}
-        <Route path="/portfolio" element={<UrbanScapes />} />
+        <Route path="/urban-scapes" element={<UrbanScapes />} />
+        <Route path="/samsara-series" element={<UrbanScapes />} />
+        <Route path="/InspiredFigurative" element={<UrbanScapes />} />
       </Routes>
     </AnimatePresence>
   );

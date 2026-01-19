@@ -134,18 +134,34 @@ export const Navbar = () => {
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: 'auto', opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
-                                            className="ml-4 mt-4 space-y-3"
+                                            transition={{ duration: 0.3 }}
+                                            className={`ml-4 mt-4 pl-4 space-y-4 border-l ${borderColor}`}
                                         >
-                                            <Link to="/urban-scapes" onClick={() => setMobileMenuOpen(false)} className={hoverColor}>
+                                            <Link
+                                                to="/urban-scapes"
+                                                onClick={() => setMobileMenuOpen(false)}
+                                                className={`block text-md font-serif ${textColor}`}
+                                            >
                                                 Urban Scapes
                                             </Link>
-                                            <Link to="/samsara-series" onClick={() => setMobileMenuOpen(false)} className={hoverColor}>
+
+                                            <Link
+                                                to="/samsara-series"
+                                                onClick={() => setMobileMenuOpen(false)}
+                                                className={`block text-md font-serif ${textColor}`}
+                                            >
                                                 Samsara Series
                                             </Link>
-                                            <Link to="/InspiredFigurative" onClick={() => setMobileMenuOpen(false)} className={hoverColor}>
+
+                                            <Link
+                                                to="/InspiredFigurative"
+                                                onClick={() => setMobileMenuOpen(false)}
+                                                className={`block text-md font-serif ${textColor}`}
+                                            >
                                                 Inspired Figurative
                                             </Link>
                                         </motion.div>
+
                                     )}
                                 </AnimatePresence>
                             </div>
