@@ -9,6 +9,8 @@ import { UrbanScapes } from './components/urbanScapes';
 import { SamsaraSeries } from './components/samsaraSeries';
 import { InspiredFigurative } from './components/inspiredFigurative';
 import Credentials from './components/crediantials';
+import { About } from './components/about';
+import { Contact } from './components/contact';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -19,10 +21,12 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/about" element={<About />} />
         <Route path="/urban-scapes" element={<UrbanScapes />} />
         <Route path="/samsara-series" element={<SamsaraSeries />} />
         <Route path="/InspiredFigurative" element={<InspiredFigurative />} />
         <Route path="/credentials" element={<Credentials />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </AnimatePresence>
   );
