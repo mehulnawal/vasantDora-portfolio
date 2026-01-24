@@ -33,7 +33,7 @@ export const Navbar = () => {
                 {/* LOGO */}
                 <Link
                     to="/"
-                    className={`text-2xl md:text-3xl font-serif font-bold tracking-tight ${textColor}`}
+                    className={`font-brusher text-2xl md:text-3xl font-serif font-bold tracking-tight ${textColor}`}
                 >
                     Vasant Dora
                 </Link>

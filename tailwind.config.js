@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    // Add this line. It tells Tailwind to look for the "dark" class in the HTML tree.
     darkMode: 'selector',
     content: [
         "./index.html",
@@ -9,7 +8,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                serif: ['Playfair Display', 'serif'],
+                // serif: ['Playfair Display', 'serif'],
+                mistral: ['Mistral', 'cursive'],
             },
         },
     },

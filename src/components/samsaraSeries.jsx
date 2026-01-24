@@ -3,15 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
-import urban1 from '../assets/images/urbanScapes/urban1.png';
-import urban2 from '../assets/images/urbanScapes/urban2.png';
-import urban3 from '../assets/images/urbanScapes/urban3.png';
-import urban4 from '../assets/images/urbanScapes/urban4.png';
-import urban5 from '../assets/images/urbanScapes/urban5.png';
-import urban6 from '../assets/images/urbanScapes/urban6.png';
-import urban7 from '../assets/images/urbanScapes/urban7.png';
+import urban1 from '../assets/images/samsaraSeries/samsaraSeries1.png';
+import urban3 from '../assets/images/samsaraSeries/samsaraSeries2.png/';
+import urban2 from '../assets/images/samsaraSeries/samsaraSeries3.png/';
+import urban4 from '../assets/images/samsaraSeries/samsaraSeries4.png/';
+import urban5 from '../assets/images/samsaraSeries/samsaraSeries5.png/';
+import urban6 from '../assets/images/samsaraSeries/samsaraSeries6.png/';
+import urban7 from '../assets/images/samsaraSeries/samsaraSeries7.png/';
 
-const SamsaraSeriesArtWorks = [
+const urbanScapesArtworks = [
     {
         id: 1,
         image: urban1,
@@ -27,39 +27,39 @@ const SamsaraSeriesArtWorks = [
     {
         id: 3,
         image: urban3,
-        size: "48 × 96 inches",
+        size: "48 × 48 inches",
         description: "OIL ON CANVAS"
     },
     {
         id: 4,
         image: urban4,
-        size: "48 × 48 inches",
+        size: "60 × 60 inches",
         description: "OIL ON CANVAS"
     }
     ,
     {
         id: 5,
         image: urban5,
-        size: "60 × 60 inches",
+        size: "42 × 60 inches",
         description: "OIL ON CANVAS"
     }
     ,
     {
         id: 6,
         image: urban6,
-        size: "48 × 36 inches",
+        size: "36 × 60 inches",
         description: "OIL ON CANVAS"
     }
     ,
     {
         id: 7,
         image: urban7,
-        size: "48 × 36 inches",
+        size: "48 × 48 inches",
         description: "OIL ON CANVAS"
     }
 ];
 
-export const UrbanScapes = () => {
+export const SamsaraSeries = () => {
     const isDark = useSelector((state) => state.theme.isDark);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [expandedArtwork, setExpandedArtwork] = useState(null);
@@ -81,18 +81,18 @@ export const UrbanScapes = () => {
     const nextSlide = (e) => {
         if (e) e.stopPropagation();
         if (expandedArtwork !== null) {
-            setExpandedArtwork((prev) => (prev + 1) % SamsaraSeriesArtWorks.length);
+            setExpandedArtwork((prev) => (prev + 1) % urbanScapesArtworks.length);
         } else {
-            setCurrentIndex((prev) => (prev + 1) % SamsaraSeriesArtWorks.length);
+            setCurrentIndex((prev) => (prev + 1) % urbanScapesArtworks.length);
         }
     };
 
     const prevSlide = (e) => {
         if (e) e.stopPropagation();
         if (expandedArtwork !== null) {
-            setExpandedArtwork((prev) => (prev - 1 + SamsaraSeriesArtWorks.length) % SamsaraSeriesArtWorks.length);
+            setExpandedArtwork((prev) => (prev - 1 + urbanScapesArtworks.length) % urbanScapesArtworks.length);
         } else {
-            setCurrentIndex((prev) => (prev - 1 + SamsaraSeriesArtWorks.length) % SamsaraSeriesArtWorks.length);
+            setCurrentIndex((prev) => (prev - 1 + urbanScapesArtworks.length) % urbanScapesArtworks.length);
         }
     };
 
@@ -108,8 +108,8 @@ export const UrbanScapes = () => {
     // Carousel Logic: Get the 3 images starting from currentIndex
     const visibleArtworks = [];
     for (let i = 0; i < 3; i++) {
-        const index = (currentIndex + i) % SamsaraSeriesArtWorks.length;
-        visibleArtworks.push({ ...SamsaraSeriesArtWorks[index], actualIndex: index });
+        const index = (currentIndex + i) % urbanScapesArtworks.length;
+        visibleArtworks.push({ ...urbanScapesArtworks[index], actualIndex: index });
     }
 
     return (
@@ -129,11 +129,11 @@ export const UrbanScapes = () => {
                             style={{ transform: 'skewX(-2deg)' }}
                         >
                             <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>
-                                UR
+                                SA
                             </span>
 
                             <span className="text-white">
-                                BAN SCAP
+                                MSARA SERI
                             </span>
 
                             <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>
@@ -155,70 +155,63 @@ export const UrbanScapes = () => {
             </section>
 
             {/* text section */}
-            <div section section className='container mx-auto px-4 sm:px-6 md:px-8 pb-10' >
+            <div className='container mx-auto px-4 sm:px-6 md:px-8 pb-10' >
                 <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto ">
                     <div className={`${cardBg} p-8 border ${borderColor} shadow-2xl`}>
                         <p className="text-base sm:text-lg leading-relaxed font-light text-justify">
-                            Through my Habitat Scape Series of art
-                            works, the artist in the architect , is
-                            exploring at an analogous level the
-                            unstructured and the organic construct
-                            of the Urban morphology in our towns
-                            and cities.
+                            Samsara in the Hindu philosophy is
+                            broadly interpreted as the endless
+                            cycle of birth , death , rebirth or the
+                            transmigration of the soul with the
+                            main dramatis personae of this
+                            philosophy
+                            being the Purusha and Prakri
                         </p>
 
                         <p className="text-base sm:text-lg leading-relaxed font-light text-justify mt-2.5">
-                            As a trained architect I would respond
-                            to order , symmetry , planned physical
-                            form and shapes , formal geometry ,
-                            street manners , climate and any other
-                            validated and contextual
-                            visual narrative that would define
-                            contemporary architecture.
+                            Purusha ( Shiv ) and Prakriti
+                            ( Shakti ) are the two abstract entities
+                            as defined in the Sankhya philosophy
+                            and is one of the six main schools of
+                            Hindu Philosophy, also known as the
+                            Shad Darshanas and is dualistic in
+                            nature.
                         </p>
 
                         <p className="text-base sm:text-lg leading-relaxed font-light text-justify mt-2.5">
-                            As an artist what fascinates me is the
-                            entirely different urban contextual
-                            form and visual narrative that exists
-                            more predominantly in the urban
-                            fabric of our towns and cities that are
-                            often referred to as unplanned
-                            development chaotic in its visual
-                            character.
+                            Purusha is the spirit , self or
+                            consciousness , is inactive , universal
+                            and eternal representing the male
+                            aspect of creation. Prakriti is the entity
+                            defined by matter or substance , it is
+                            representative of the female aspect of
+                            creation and is active. It is the union of
+                            Purusha and Prakriti that creates the
+                            universe.
                         </p>
                     </div>
                     <div className={`${cardBg} p-8 border ${borderColor} shadow-2xl`}>
                         <p className="text-base sm:text-lg leading-relaxed font-light text-justify">
-                            It more often is organic development
-                            that was “architectured” by the users
-                            and common people. The seemingly
-                            chaotic aggregation of the habitat
-                            mass that exists in multiple layers
-                            beyond the mere brick and mortar of
-                            the physical façade and where the
-                            physical aspect serves the functional
-                            purpose of its subliminal construct.
-                        </p>
-
-                        <p className="text-base sm:text-lg leading-relaxed font-light text-justify mt-2.5">
-
-                            At an entirely different level of
-                            perception to the cognitive construct
-                            of my “ trained “ understanding as an
-                            architect , I have also often been
-                            compelled to wonder of what lies
-                            beyond and within the habitat scapes
-                            and human tenements. It is here that
-                            my art points to a direction for the
-                            viewer to unravel the mysteries that is
-                            symbiotically woven in the physical
-                            construct and character , in the
-                            masses and voids , narrow lanes and
-                            by lanes of these organic settlements
-                            through the prism their own life
-                            experiences and interpretations
-
+                            I dwell in the concept of Prakriti
+                            ( Shakti ) in the realms of my art
+                            works. Shakti or Bhudevi in the Hindu
+                            worldview is the mother goddess ,
+                            which receives the seed in her womb
+                            from which springs forth life. Prakriti
+                            ( Nature ) , throbbing with life and
+                            bestowing energy is therefore
+                            referenced as Shakti , the source of
+                            power. It is hence the manifestation
+                            of “ Maya “ ( Illusion ) , in its visual
+                            shape , texture , fragrance , colours or
+                            the “ Rasas “ . It is a divine portrayal
+                            of sensuality , untamed passion ,
+                            corporeal desires , that is physically
+                            imbued in the soul of
+                            Prakriti ( Nature ) to serve the
+                            primordial purpose of the continuum
+                            of existence , or the eternal cycle of “
+                            SAMSARA “
                         </p>
                     </div>
                 </div>
@@ -291,24 +284,24 @@ export const UrbanScapes = () => {
 
                         <div className="relative w-full max-w-7xl h-full flex flex-col lg:flex-row items-center justify-center gap-12 pointer-events-none">
                             {/* Image Container */}
-                            <div className={`${SamsaraSeriesArtWorks[expandedArtwork].title ? 'lg:w-2/3' : 'w-full'} h-[60vh] lg:h-[80vh] flex flex-col items-center justify-center gap-6 pointer-events-auto`}>
+                            <div className={`${urbanScapesArtworks[expandedArtwork].title ? 'lg:w-2/3' : 'w-full'} h-[60vh] lg:h-[80vh] flex flex-col items-center justify-center gap-6 pointer-events-auto`}>
                                 <motion.img
                                     key={expandedArtwork}
                                     initial={{ scale: 0.8, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
-                                    src={SamsaraSeriesArtWorks[expandedArtwork].image}
+                                    src={urbanScapesArtworks[expandedArtwork].image}
                                     className="max-w-full max-h-full object-contain shadow-2xl"
                                 />
                                 {/* Counter for images WITHOUT text */}
-                                {!SamsaraSeriesArtWorks[expandedArtwork].title && (
+                                {!urbanScapesArtworks[expandedArtwork].title && (
                                     <p className="text-white/40 tracking-[0.3em] text-sm uppercase font-serif">
-                                        {expandedArtwork + 1} / {SamsaraSeriesArtWorks.length}
+                                        {expandedArtwork + 1} / {urbanScapesArtworks.length}
                                     </p>
                                 )}
                             </div>
 
                             {/* Info Sidebar (Only if Title exists) */}
-                            {SamsaraSeriesArtWorks[expandedArtwork].title && (
+                            {urbanScapesArtworks[expandedArtwork].title && (
                                 <motion.div
                                     key={`info-${expandedArtwork}`}
                                     initial={{ x: 50, opacity: 0 }}
@@ -318,15 +311,15 @@ export const UrbanScapes = () => {
                                     <div className={`h-1 w-12 bg-gradient-to-r ${accentGradient}`} />
                                     <div>
                                         <p className="text-xs tracking-[0.3em] uppercase opacity-50 mb-2">Selected Scape</p>
-                                        <h2 className="text-4xl md:text-5xl font-serif leading-tight">{SamsaraSeriesArtWorks[expandedArtwork].title}</h2>
+                                        <h2 className="text-4xl md:text-5xl font-serif leading-tight">{urbanScapesArtworks[expandedArtwork].title}</h2>
                                     </div>
                                     <div className="space-y-4 pt-6 border-t border-white/10">
-                                        <p className="text-[#D4AF37] text-xl font-serif">{SamsaraSeriesArtWorks[expandedArtwork].size}</p>
-                                        <p className="text-lg opacity-70 leading-relaxed font-serif">{SamsaraSeriesArtWorks[expandedArtwork].description}</p>
+                                        <p className="text-[#D4AF37] text-xl font-serif">{urbanScapesArtworks[expandedArtwork].size}</p>
+                                        <p className="text-lg opacity-70 leading-relaxed font-serif">{urbanScapesArtworks[expandedArtwork].description}</p>
                                     </div>
                                     <div className="pt-8">
                                         <p className="text-white/40 tracking-[0.3em] text-sm uppercase font-serif">
-                                            {expandedArtwork + 1} / {SamsaraSeriesArtWorks.length}
+                                            {expandedArtwork + 1} / {urbanScapesArtworks.length}
                                         </p>
                                     </div>
                                 </motion.div>

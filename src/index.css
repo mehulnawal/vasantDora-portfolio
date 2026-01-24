@@ -1,7 +1,23 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'MistralCustom';
+  src: url('/fonts/MISTRAL.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brusher';
+  src: url('/fonts/Brusher.ttf') format('truetype');
+}
+
+.font-brusher {
+  font-family: 'Brusher', cursive;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,6 +29,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.font-mistral {
+  font-family: 'MistralCustom';
 }
 
 button {
