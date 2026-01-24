@@ -18,45 +18,56 @@ const SamsaraSeriesArtWorks = [
         id: 1,
         image: urban1,
         size: "48 × 48 inches",
+        vDim: 48, // Vertical Dimension
+        hDim: 48, // Horizontal Dimension
         description: "OIL ON CANVAS"
     },
     {
         id: 2,
         image: urban2,
         size: "48 × 48 inches",
+        vDim: 48,
+        hDim: 48,
         description: "OIL ON CANVAS"
     },
     {
         id: 3,
         image: urban3,
         size: "48 × 96 inches",
+        vDim: 48,
+        hDim: 96,
         description: "OIL ON CANVAS"
     },
     {
         id: 4,
         image: urban4,
         size: "48 × 48 inches",
+        vDim: 48,
+        hDim: 48,
         description: "OIL ON CANVAS"
-    }
-    ,
+    },
     {
         id: 5,
         image: urban5,
         size: "60 × 60 inches",
+        vDim: 60,
+        hDim: 60,
         description: "OIL ON CANVAS"
-    }
-    ,
+    },
     {
         id: 6,
         image: urban6,
         size: "48 × 36 inches",
+        vDim: 48,
+        hDim: 36,
         description: "OIL ON CANVAS"
-    }
-    ,
+    },
     {
         id: 7,
         image: urban7,
         size: "48 × 36 inches",
+        vDim: 48,
+        hDim: 36,
         description: "OIL ON CANVAS"
     }
 ];
@@ -67,19 +78,14 @@ export const UrbanScapes = () => {
     const [expandedArtwork, setExpandedArtwork] = useState(null);
 
     useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-        })
-    }, [])
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, []);
 
     useEffect(() => {
         document.body.style.overflow = expandedArtwork !== null ? 'hidden' : 'auto';
         return () => { document.body.style.overflow = 'auto'; };
     }, [expandedArtwork]);
 
-    // Combined navigation for Carousel and Modal
     const nextSlide = (e) => {
         if (e) e.stopPropagation();
         if (expandedArtwork !== null) {
@@ -107,7 +113,6 @@ export const UrbanScapes = () => {
     const accentGradient = isDark ? 'from-[#D4AF37] to-[#F4E4C1]' : 'from-[#8B6914] via-[#B8860B] to-[#DAA520]';
     const overlayBg = isDark ? 'bg-black/60' : 'bg-[#F5EFE7]/85';
 
-    // Carousel Logic: Get the 3 images starting from currentIndex
     const visibleArtworks = [];
     for (let i = 0; i < 3; i++) {
         const index = (currentIndex + i) % SamsaraSeriesArtWorks.length;
@@ -120,36 +125,15 @@ export const UrbanScapes = () => {
             {/* Banner Section */}
             <section className="relative pt-32 pb-10">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="relative w-full mx-auto mb-28"
-                    >
-                        <h1
-                            className="relative z-10 text-center whitespace-nowrap leading-none font-extrabold text-[clamp(3rem,9vw,8rem)] font-brusher"
-                            style={{ transform: 'skewX(-2deg)' }}
-                        >
-                            <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>
-                                UR
-                            </span>
-
-                            <span className="text-white">
-                                BAN SCAP
-                            </span>
-
-                            <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>
-                                ES
-                            </span>
+                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="relative w-full mx-auto mb-28">
+                        <h1 className="relative z-10 text-center whitespace-nowrap leading-none font-extrabold text-[clamp(3rem,9vw,8rem)] font-brusher" style={{ transform: 'skewX(-2deg)' }}>
+                            <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>UR</span>
+                            <span className="text-white">BAN SCAP</span>
+                            <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>ES</span>
                         </h1>
-
                         <div className="absolute inset-0 flex items-center justify-center -z-0 font-brusher">
                             <div className="relative w-[55%] max-w-3xl h-55 sm:h-[300px] md:h-[360px] overflow-hidden shadow-2xl">
-                                <img
-                                    src={urbanScapesBannerImg}
-                                    alt="Urban Scapes"
-                                    className="w-full h-full object-cover"
-                                />
+                                <img src={urbanScapesBannerImg} alt="Urban Scapes" className="w-full h-full object-cover" />
                             </div>
                         </div>
                     </motion.div>
@@ -227,7 +211,7 @@ export const UrbanScapes = () => {
             </div>
 
             {/* Gallery Section */}
-            <section className="container mx-auto px-4 sm:px-6 md:px-8 pb-32 " >
+            <section className="container mx-auto px-4 sm:px-6 md:px-8 pb-32">
                 <div className="flex items-center justify-between mb-12">
                     <h2 className="text-4xl font-serif">Gallery</h2>
                     <div className="flex gap-4">
@@ -238,105 +222,62 @@ export const UrbanScapes = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     <AnimatePresence mode="popLayout">
-                        {visibleArtworks.map((artwork) => {
-                            const hasText = artwork.title || artwork.size;
-                            return (
-                                <motion.div
-                                    key={artwork.id}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.4 }}
-                                    onClick={() => setExpandedArtwork(artwork.actualIndex)}
-                                    className={`cursor-pointer group border ${borderColor} ${cardBg} p-3 shadow-xl`}
+                        {visibleArtworks.map((artwork) => (
+                            <motion.div
+                                key={artwork.id}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.4 }}
+                                onClick={() => setExpandedArtwork(artwork.actualIndex)}
+                                className={`cursor-pointer group border ${borderColor} ${cardBg} p-3 shadow-xl flex items-center justify-center`}
+                            >
+                                {/* Aspect ratio calculated as: hDim (Horizontal) / vDim (Vertical) */}
+                                <div
+                                    className="relative overflow-hidden w-full flex items-center justify-center bg-black/5"
+                                    style={{ aspectRatio: `${artwork.hDim} / ${artwork.vDim}` }}
                                 >
-                                    <div className="relative overflow-hidden aspect-[4/5]">
-                                        <img src={artwork.image} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
-                                        {hasText && (
-                                            <div className={`absolute inset-0 ${overlayBg} opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6`}>
-                                                <div>
-                                                    <h4 className="text-xl font-serif">{artwork.title}</h4>
-                                                    <p className="text-sm opacity-70">{artwork.size}</p>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
+                                    <img src={artwork.image} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" alt="" />
+                                </div>
+                            </motion.div>
+                        ))}
                     </AnimatePresence>
                 </div>
-            </section >
+            </section>
 
-            {/* Expanded Artwork Modal */}
-            < AnimatePresence AnimatePresence >
+            {/* Modal */}
+            <AnimatePresence>
                 {expandedArtwork !== null && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[200] flex items-center justify-center bg-black/98 p-4 md:p-12"
+                        className="fixed inset-0 z-[1000] bg-black/98 p-4 md:p-12 flex items-center justify-center"
                     >
-                        {/* Backdrop Click to Close */}
                         <div className="absolute inset-0" onClick={() => setExpandedArtwork(null)} />
 
-                        {/* Navigation Controls */}
-                        <button onClick={prevSlide} className="absolute left-4 md:left-10 text-white/40 hover:text-white z-50 transition-colors">
-                            <ChevronLeft size={64} />
-                        </button>
-                        <button onClick={nextSlide} className="absolute right-4 md:right-10 text-white/40 hover:text-white z-50 transition-colors">
-                            <ChevronRight size={64} />
-                        </button>
-                        <button onClick={() => setExpandedArtwork(null)} className="absolute top-8 right-8 text-white/70 hover:text-white z-50">
-                            <X size={40} />
-                        </button>
+                        <button onClick={prevSlide} className="absolute left-4 md:left-10 text-white/40 hover:text-white z-50 transition-colors"><ChevronLeft size={64} /></button>
+                        <button onClick={nextSlide} className="absolute right-4 md:right-10 text-white/40 hover:text-white z-50 transition-colors"><ChevronRight size={64} /></button>
+                        <button onClick={() => setExpandedArtwork(null)} className="absolute top-8 right-8 text-white/70 hover:text-white z-50"><X size={40} /></button>
 
-                        <div className="relative w-full max-w-7xl h-full flex flex-col lg:flex-row items-center justify-center gap-12 pointer-events-none">
-                            {/* Image Container */}
-                            <div className={`${SamsaraSeriesArtWorks[expandedArtwork].title ? 'lg:w-2/3' : 'w-full'} h-[60vh] lg:h-[80vh] flex flex-col items-center justify-center gap-6 pointer-events-auto`}>
-                                <motion.img
-                                    key={expandedArtwork}
-                                    initial={{ scale: 0.8, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    src={SamsaraSeriesArtWorks[expandedArtwork].image}
-                                    className="max-w-full max-h-full object-contain shadow-2xl"
-                                />
-                                {/* Counter for images WITHOUT text */}
-                                {!SamsaraSeriesArtWorks[expandedArtwork].title && (
-                                    <p className="text-white/40 tracking-[0.3em] text-sm uppercase font-serif">
-                                        {expandedArtwork + 1} / {SamsaraSeriesArtWorks.length}
-                                    </p>
-                                )}
+                        <div className="relative w-full h-full flex flex-col items-center justify-center gap-6 pointer-events-none">
+                            <motion.img
+                                key={expandedArtwork}
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                src={SamsaraSeriesArtWorks[expandedArtwork].image}
+                                className="max-w-full max-h-[75vh] object-contain shadow-2xl pointer-events-auto"
+                                style={{ aspectRatio: `${SamsaraSeriesArtWorks[expandedArtwork].hDim} / ${SamsaraSeriesArtWorks[expandedArtwork].vDim}` }}
+                            />
+                            <div className="text-center text-white bg-black/40 backdrop-blur-md p-6 rounded-lg pointer-events-auto">
+                                <p className="text-[#D4AF37] text-xl font-serif">{SamsaraSeriesArtWorks[expandedArtwork].size}</p>
+                                <p className="text-sm opacity-50 uppercase tracking-widest">{SamsaraSeriesArtWorks[expandedArtwork].description}</p>
+                                <p className="text-white/40 text-xs mt-2">{expandedArtwork + 1} / {SamsaraSeriesArtWorks.length}</p>
                             </div>
-
-                            {/* Info Sidebar (Only if Title exists) */}
-                            {SamsaraSeriesArtWorks[expandedArtwork].title && (
-                                <motion.div
-                                    key={`info-${expandedArtwork}`}
-                                    initial={{ x: 50, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
-                                    className="w-full lg:w-1/3 text-white space-y-6 flex flex-col pointer-events-auto"
-                                >
-                                    <div className={`h-1 w-12 bg-gradient-to-r ${accentGradient}`} />
-                                    <div>
-                                        <p className="text-xs tracking-[0.3em] uppercase opacity-50 mb-2">Selected Scape</p>
-                                        <h2 className="text-4xl md:text-5xl font-serif leading-tight">{SamsaraSeriesArtWorks[expandedArtwork].title}</h2>
-                                    </div>
-                                    <div className="space-y-4 pt-6 border-t border-white/10">
-                                        <p className="text-[#D4AF37] text-xl font-serif">{SamsaraSeriesArtWorks[expandedArtwork].size}</p>
-                                        <p className="text-lg opacity-70 leading-relaxed font-serif">{SamsaraSeriesArtWorks[expandedArtwork].description}</p>
-                                    </div>
-                                    <div className="pt-8">
-                                        <p className="text-white/40 tracking-[0.3em] text-sm uppercase font-serif">
-                                            {expandedArtwork + 1} / {SamsaraSeriesArtWorks.length}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            )}
                         </div>
                     </motion.div>
                 )}
-            </ AnimatePresence>
-        </div >
+            </AnimatePresence>
+        </div>
     );
 };
