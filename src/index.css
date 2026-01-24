@@ -39,11 +39,11 @@ button {
   cursor: pointer;
 }
 
-@layer base {
+/* @layer base {
   body {
     @apply antialiased;
   }
   h1, h2, h3, .font-serif {
-    font-family: 'Playfair Display', serif; /* Or any serif font */
+    font-family: 'Playfair Display', serif; 
   }
-}
+} */
