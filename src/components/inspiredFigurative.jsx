@@ -11,9 +11,21 @@ import DraupadiSeries4 from '../assets/images/inspiredFigurative/DraupadiSeries/
 import DraupadiSeries5 from '../assets/images/inspiredFigurative/DraupadiSeries/DraupadiSeries5.png';
 import DraupadiSeries6 from '../assets/images/inspiredFigurative/DraupadiSeries/DraupadiSeries6.png';
 
-// 
-// 
-// 
+// Mary_Magdalene_Series
+import Mary_Magdalene_Series1 from '../assets/images/inspiredFigurative/MaryMagdaleneSeries/MaryMagdaleneSeries1.png';
+import Mary_Magdalene_Series2 from '../assets/images/inspiredFigurative/MaryMagdaleneSeries/MaryMagdaleneSeries2.png';
+import Mary_Magdalene_Series3 from '../assets/images/inspiredFigurative/MaryMagdaleneSeries/MaryMagdaleneSeries3.png';
+
+// AMRITA_PRITAM_SERIES
+import AMRITA_PRITAM_SERIES1 from '../assets/images/inspiredFigurative/AMRITA_PRITAM_SERIES/AMRITA_PRITAM_SERIES1.png';
+import AMRITA_PRITAM_SERIES2 from '../assets/images/inspiredFigurative/AMRITA_PRITAM_SERIES/AMRITA_PRITAM_SERIES2.png';
+import AMRITA_PRITAM_SERIES3 from '../assets/images/inspiredFigurative/AMRITA_PRITAM_SERIES/AMRITA_PRITAM_SERIES3.png';
+
+// KHALIL_GIBRAN_SERIES
+import KHALIL_GIBRAN_SERIES1 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES1.png';
+import KHALIL_GIBRAN_SERIES2 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES2.png';
+import KHALIL_GIBRAN_SERIES3 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES3.png';
+
 
 
 const ART_TABS = [
@@ -37,12 +49,9 @@ const ART_TABS = [
         subtitle: "Organic Aggregation",
         description: `She was born in the fishing village of Magdala on the shores of the Sea of Galilee. “Colour me Blue” she Said .`,
         images: [
-            { id: 1, image: DraupadiSeries1, size: "48 × 48 inches", description: "OIL ON CANVAS", title: "Urban Scape I" },
-            { id: 2, image: DraupadiSeries2, size: "48 × 48 inches", description: "OIL ON CANVAS", title: "Urban Scape II" },
-            { id: 3, image: DraupadiSeries3, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" },
-            { id: 4, image: DraupadiSeries4, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" },
-            { id: 5, image: DraupadiSeries5, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" },
-            { id: 6, image: DraupadiSeries6, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" }
+            { id: 1, image: Mary_Magdalene_Series1, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "SYBIL" },
+            { id: 2, image: Mary_Magdalene_Series2, size: "36 × 36 inches", description: "OIL ON CANVAS", title: "CHALICE" },
+            { id: 3, image: Mary_Magdalene_Series3, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "MATRIARCH OF THE ROYAL BLOODLINE" }
         ]
     },
     {
@@ -51,12 +60,9 @@ const ART_TABS = [
         subtitle: "AMRITA PRITAM SERIES",
         description: "",
         images: [
-            { id: 1, image: DraupadiSeries1, size: "48 × 48 inches", description: "OIL ON CANVAS", title: "Urban Scape I" },
-            { id: 2, image: DraupadiSeries2, size: "48 × 48 inches", description: "OIL ON CANVAS", title: "Urban Scape II" },
-            { id: 3, image: DraupadiSeries3, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" },
-            { id: 4, image: DraupadiSeries4, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" },
-            { id: 5, image: DraupadiSeries5, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" },
-            { id: 6, image: DraupadiSeries6, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" }
+            { id: 1, image: AMRITA_PRITAM_SERIES1, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "I WILL MEET YOU ONCE AGAIN" },
+            { id: 2, image: AMRITA_PRITAM_SERIES2, size: "36 × 30 inches", description: "OIL ON CANVAS", title: "KAYA" },
+            { id: 3, image: AMRITA_PRITAM_SERIES3, size: "30 × 40 inches", description: "OIL ON CANVAS", title: "UNLIKHI" }
         ]
     },
     {
@@ -64,12 +70,9 @@ const ART_TABS = [
         title: "KHALIL GIBRAN SERIES",
         subtitle: "KHALIL GIBRAN SERIES",
         images: [
-            { id: 1, image: DraupadiSeries1, size: "48 × 48 inches", description: "OIL ON CANVAS", title: "Urban Scape I" },
-            { id: 2, image: DraupadiSeries2, size: "48 × 48 inches", description: "OIL ON CANVAS", title: "Urban Scape II" },
-            { id: 3, image: DraupadiSeries3, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" },
-            { id: 4, image: DraupadiSeries4, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" },
-            { id: 5, image: DraupadiSeries5, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" },
-            { id: 6, image: DraupadiSeries6, size: "48 × 96 inches", description: "OIL ON CANVAS", title: "Urban Scape III" }
+            { id: 1, image: KHALIL_GIBRAN_SERIES1, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "Dark Moon" },
+            { id: 2, image: KHALIL_GIBRAN_SERIES2, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "MARRIAGE" },
+            { id: 3, image: KHALIL_GIBRAN_SERIES3, size: "36 × 36 inches", description: "OIL ON CANVAS", title: "TEMPLE STEP" }
         ]
     },
 ];

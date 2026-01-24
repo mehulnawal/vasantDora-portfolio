@@ -8,6 +8,7 @@ import { Footer } from './components/footer';
 import { UrbanScapes } from './components/urbanScapes';
 import { SamsaraSeries } from './components/samsaraSeries';
 import { InspiredFigurative } from './components/inspiredFigurative';
+import Credentials from './components/crediantials';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function AnimatedRoutes() {
         <Route path="/urban-scapes" element={<UrbanScapes />} />
         <Route path="/samsara-series" element={<SamsaraSeries />} />
         <Route path="/InspiredFigurative" element={<InspiredFigurative />} />
+        <Route path="/credentials" element={<Credentials />} />
       </Routes>
     </AnimatePresence>
   );
