@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
+import urbanScapesBannerImg from '../assets/images/urbanScapes/urbanScapesBannerImg.jpeg';
+
 import urban1 from '../assets/images/urbanScapes/urban1.png';
 import urban2 from '../assets/images/urbanScapes/urban2.png';
 import urban3 from '../assets/images/urbanScapes/urban3.png';
@@ -144,7 +146,7 @@ export const UrbanScapes = () => {
                         <div className="absolute inset-0 flex items-center justify-center -z-0 font-brusher">
                             <div className="relative w-[55%] max-w-3xl h-55 sm:h-[300px] md:h-[360px] overflow-hidden shadow-2xl">
                                 <img
-                                    src={urban4}
+                                    src={urbanScapesBannerImg}
                                     alt="Urban Scapes"
                                     className="w-full h-full object-cover"
                                 />

@@ -3,57 +3,60 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
-import urban1 from '../assets/images/samsaraSeries/samsaraSeries1.png';
-import urban3 from '../assets/images/samsaraSeries/samsaraSeries2.png/';
-import urban2 from '../assets/images/samsaraSeries/samsaraSeries3.png/';
-import urban4 from '../assets/images/samsaraSeries/samsaraSeries4.png/';
-import urban5 from '../assets/images/samsaraSeries/samsaraSeries5.png/';
-import urban6 from '../assets/images/samsaraSeries/samsaraSeries6.png/';
-import urban7 from '../assets/images/samsaraSeries/samsaraSeries7.png/';
+// banner img
+import samsaraSeriesImg from '../assets/images/samsaraSeries/samsaraSeriesBannerImg.png';
 
-const urbanScapesArtworks = [
+import samsaraSeries1 from '../assets/images/samsaraSeries/samsaraSeries1.png';
+import samsaraSeries3 from '../assets/images/samsaraSeries/samsaraSeries2.png/';
+import samsaraSeries2 from '../assets/images/samsaraSeries/samsaraSeries3.png/';
+import samsaraSeries4 from '../assets/images/samsaraSeries/samsaraSeries4.png/';
+import samsaraSeries5 from '../assets/images/samsaraSeries/samsaraSeries5.png/';
+import samsaraSeries6 from '../assets/images/samsaraSeries/samsaraSeries6.png/';
+import samsaraSeries7 from '../assets/images/samsaraSeries/samsaraSeries7.png/';
+
+const samsaraSeriesScapesArtworks = [
     {
         id: 1,
-        image: urban1,
+        image: samsaraSeries1,
         size: "48 × 48 inches",
         description: "OIL ON CANVAS"
     },
     {
         id: 2,
-        image: urban2,
+        image: samsaraSeries2,
         size: "48 × 48 inches",
         description: "OIL ON CANVAS"
     },
     {
         id: 3,
-        image: urban3,
+        image: samsaraSeries3,
         size: "48 × 48 inches",
         description: "OIL ON CANVAS"
     },
     {
         id: 4,
-        image: urban4,
+        image: samsaraSeries4,
         size: "60 × 60 inches",
         description: "OIL ON CANVAS"
     }
     ,
     {
         id: 5,
-        image: urban5,
+        image: samsaraSeries5,
         size: "42 × 60 inches",
         description: "OIL ON CANVAS"
     }
     ,
     {
         id: 6,
-        image: urban6,
+        image: samsaraSeries6,
         size: "36 × 60 inches",
         description: "OIL ON CANVAS"
     }
     ,
     {
         id: 7,
-        image: urban7,
+        image: samsaraSeries7,
         size: "48 × 48 inches",
         description: "OIL ON CANVAS"
     }
@@ -81,18 +84,18 @@ export const SamsaraSeries = () => {
     const nextSlide = (e) => {
         if (e) e.stopPropagation();
         if (expandedArtwork !== null) {
-            setExpandedArtwork((prev) => (prev + 1) % urbanScapesArtworks.length);
+            setExpandedArtwork((prev) => (prev + 1) % samsaraSeriesScapesArtworks.length);
         } else {
-            setCurrentIndex((prev) => (prev + 1) % urbanScapesArtworks.length);
+            setCurrentIndex((prev) => (prev + 1) % samsaraSeriesScapesArtworks.length);
         }
     };
 
     const prevSlide = (e) => {
         if (e) e.stopPropagation();
         if (expandedArtwork !== null) {
-            setExpandedArtwork((prev) => (prev - 1 + urbanScapesArtworks.length) % urbanScapesArtworks.length);
+            setExpandedArtwork((prev) => (prev - 1 + samsaraSeriesScapesArtworks.length) % samsaraSeriesScapesArtworks.length);
         } else {
-            setCurrentIndex((prev) => (prev - 1 + urbanScapesArtworks.length) % urbanScapesArtworks.length);
+            setCurrentIndex((prev) => (prev - 1 + samsaraSeriesScapesArtworks.length) % samsaraSeriesScapesArtworks.length);
         }
     };
 
@@ -108,8 +111,8 @@ export const SamsaraSeries = () => {
     // Carousel Logic: Get the 3 images starting from currentIndex
     const visibleArtworks = [];
     for (let i = 0; i < 3; i++) {
-        const index = (currentIndex + i) % urbanScapesArtworks.length;
-        visibleArtworks.push({ ...urbanScapesArtworks[index], actualIndex: index });
+        const index = (currentIndex + i) % samsaraSeriesScapesArtworks.length;
+        visibleArtworks.push({ ...samsaraSeriesScapesArtworks[index], actualIndex: index });
     }
 
     return (
@@ -144,8 +147,8 @@ export const SamsaraSeries = () => {
                         <div className="absolute inset-0 flex items-center justify-center -z-0 font-brusher">
                             <div className="relative w-[55%] max-w-3xl h-55 sm:h-[300px] md:h-[360px] overflow-hidden shadow-2xl">
                                 <img
-                                    src={urban4}
-                                    alt="Urban Scapes"
+                                    src={samsaraSeriesImg}
+                                    alt="samsaraSeries Scapes"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -241,7 +244,7 @@ export const SamsaraSeries = () => {
                                     onClick={() => setExpandedArtwork(artwork.actualIndex)}
                                     className={`cursor-pointer group border ${borderColor} ${cardBg} p-3 shadow-xl`}
                                 >
-                                    <div className="relative overflow-hidden aspect-[4/5]">
+                                    <div className="relative overflow-hidden aspect-4/5">
                                         <img src={artwork.image} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
                                         {hasText && (
                                             <div className={`absolute inset-0 ${overlayBg} opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6`}>
@@ -266,7 +269,7 @@ export const SamsaraSeries = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[200] flex items-center justify-center bg-black/98 p-4 md:p-12"
+                        className="fixed inset-0 z-200 flex items-center justify-center bg-black/98 p-4 md:p-12"
                     >
                         {/* Backdrop Click to Close */}
                         <div className="absolute inset-0" onClick={() => setExpandedArtwork(null)} />
@@ -284,24 +287,24 @@ export const SamsaraSeries = () => {
 
                         <div className="relative w-full max-w-7xl h-full flex flex-col lg:flex-row items-center justify-center gap-12 pointer-events-none">
                             {/* Image Container */}
-                            <div className={`${urbanScapesArtworks[expandedArtwork].title ? 'lg:w-2/3' : 'w-full'} h-[60vh] lg:h-[80vh] flex flex-col items-center justify-center gap-6 pointer-events-auto`}>
+                            <div className={`${samsaraSeriesScapesArtworks[expandedArtwork].title ? 'lg:w-2/3' : 'w-full'} h-[60vh] lg:h-[80vh] flex flex-col items-center justify-center gap-6 pointer-events-auto`}>
                                 <motion.img
                                     key={expandedArtwork}
                                     initial={{ scale: 0.8, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
-                                    src={urbanScapesArtworks[expandedArtwork].image}
+                                    src={samsaraSeriesScapesArtworks[expandedArtwork].image}
                                     className="max-w-full max-h-full object-contain shadow-2xl"
                                 />
                                 {/* Counter for images WITHOUT text */}
-                                {!urbanScapesArtworks[expandedArtwork].title && (
+                                {!samsaraSeriesScapesArtworks[expandedArtwork].title && (
                                     <p className="text-white/40 tracking-[0.3em] text-sm uppercase font-serif">
-                                        {expandedArtwork + 1} / {urbanScapesArtworks.length}
+                                        {expandedArtwork + 1} / {samsaraSeriesScapesArtworks.length}
                                     </p>
                                 )}
                             </div>
 
                             {/* Info Sidebar (Only if Title exists) */}
-                            {urbanScapesArtworks[expandedArtwork].title && (
+                            {samsaraSeriesScapesArtworks[expandedArtwork].title && (
                                 <motion.div
                                     key={`info-${expandedArtwork}`}
                                     initial={{ x: 50, opacity: 0 }}
@@ -311,15 +314,15 @@ export const SamsaraSeries = () => {
                                     <div className={`h-1 w-12 bg-gradient-to-r ${accentGradient}`} />
                                     <div>
                                         <p className="text-xs tracking-[0.3em] uppercase opacity-50 mb-2">Selected Scape</p>
-                                        <h2 className="text-4xl md:text-5xl font-serif leading-tight">{urbanScapesArtworks[expandedArtwork].title}</h2>
+                                        <h2 className="text-4xl md:text-5xl font-serif leading-tight">{samsaraSeriesScapesArtworks[expandedArtwork].title}</h2>
                                     </div>
                                     <div className="space-y-4 pt-6 border-t border-white/10">
-                                        <p className="text-[#D4AF37] text-xl font-serif">{urbanScapesArtworks[expandedArtwork].size}</p>
-                                        <p className="text-lg opacity-70 leading-relaxed font-serif">{urbanScapesArtworks[expandedArtwork].description}</p>
+                                        <p className="text-[#D4AF37] text-xl font-serif">{samsaraSeriesScapesArtworks[expandedArtwork].size}</p>
+                                        <p className="text-lg opacity-70 leading-relaxed font-serif">{samsaraSeriesScapesArtworks[expandedArtwork].description}</p>
                                     </div>
                                     <div className="pt-8">
                                         <p className="text-white/40 tracking-[0.3em] text-sm uppercase font-serif">
-                                            {expandedArtwork + 1} / {urbanScapesArtworks.length}
+                                            {expandedArtwork + 1} / {samsaraSeriesScapesArtworks.length}
                                         </p>
                                     </div>
                                 </motion.div>

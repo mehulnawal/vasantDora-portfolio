@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
+// banner img
+import inpiredFigurativeBannerImg from '../assets/images/inspiredFigurative/inpiredFigurativeBannerImg.jpeg';
+
 // Draupadi Series
 import DraupadiSeries1 from '../assets/images/inspiredFigurative/DraupadiSeries/DraupadiSeries1.png';
 import DraupadiSeries2 from '../assets/images/inspiredFigurative/DraupadiSeries/DraupadiSeries2.png';
@@ -157,7 +160,7 @@ export const InspiredFigurative = () => {
 
                             <div className="relative w-[65%] sm:w-[60%] md:w-[55%] max-w-3xl h-45 sm:h-75 md:h-90 overflow-hidden ">
                                 <img
-                                    src={DraupadiSeries6}
+                                    src={inpiredFigurativeBannerImg}
                                     alt="Inspired Figurative"
                                     className="w-full h-full object-cover"
                                 />
