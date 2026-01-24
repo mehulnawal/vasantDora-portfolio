@@ -98,7 +98,7 @@ export const Home = () => {
             {/* --- RESPONSIVE BANNERS --- */}
 
             {/* 1. Mobile Vertical Banner (Inspired by The Spaceman UI) */}
-            <section className="relative flex flex-col sm:hidden h-screen bg-[#0A0A0A] text-white overflow-hidden">
+            <section className="relative flex flex-col md:hidden h-screen bg-[#0A0A0A] text-white overflow-hidden">
                 <div className="flex-grow relative w-full h-3/5">
                     <motion.img
                         initial={{ scale: 1.1, opacity: 0 }}
@@ -131,7 +131,7 @@ export const Home = () => {
             </section>
 
             {/* 2. Desktop Wide Banner */}
-            <section className="hidden sm:flex relative h-screen w-full items-end overflow-hidden">
+            <section className="hidden md:flex relative h-screen w-full items-end overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <motion.img initial={{ scale: 1.1 }} animate={{ scale: 1 }} transition={{ duration: 1.5 }}
                         src={clientImage} alt="Vasant Dora" className="w-full h-full object-cover object-center" />
