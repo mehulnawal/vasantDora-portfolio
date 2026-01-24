@@ -10,9 +10,11 @@ import test1 from '../assets/images/homePage/homePage_Painting1.jpg'
 import test2 from '../assets/images/homePage/homePage_Painting2.jpg'
 
 const artworks = [
-    { id: 1, image: test1, title: "Selected Work I", size: "48 × 36 inches" },
-    { id: 2, image: test2, title: "Selected Work II", size: "60 × 48 inches" }
+    { id: 1, image: test1, title: "", size: "48 × 36 inches" },
+    { id: 2, image: test2, title: "", size: "60 × 48 inches" }
 ];
+
+
 
 export const Home = () => {
     const isDark = useSelector((state) => state.theme.isDark);
@@ -20,6 +22,10 @@ export const Home = () => {
 
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, []);
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -112,7 +118,7 @@ export const Home = () => {
                 <div className="h-2/5 flex flex-col items-center justify-center px-8 text-center space-y-6">
                     <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5 }}>
                         <span className="text-[10px] tracking-[0.4em] uppercase opacity-70 block mb-2 font-serif">Contemporary Painter</span>
-                        <h1 className="text-4xl font-serif tracking-tighter uppercase leading-none">Vasant <br /> Dora</h1>
+                        <h1 className="font-brusher mt-5 text-4xl font-serif tracking-tighter uppercase leading-none">Vasant <br /> Dora</h1>
                     </motion.div>
 
                     <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="text-xs font-serif italic opacity-60 max-w-xs leading-relaxed">
@@ -142,19 +148,23 @@ export const Home = () => {
                             <motion.path d="M 0 8 Q 16 0, 32 8 T 64 8" stroke={isDark ? "#D4AF37" : "#DAA520"} strokeWidth="3" fill="none" strokeLinecap="round" variants={brushStrokeVariants} initial="hidden" animate="visible" />
                         </svg>
                         <span className="text-xs tracking-[0.4em] uppercase mb-4 block text-white/90 font-serif">Contemporary Painter</span>
-                        <h1 className="text-5xl md:text-9xl mb-6 text-white leading-none font-serif uppercase tracking-tighter">Vasant Dora</h1>
+                        <h1 className="font-brusher text-5xl md:text-9xl mb-6 text-white leading-none font-serif uppercase tracking-tighter">Vasant Dora</h1>
                         <p className="text-lg md:text-2xl font-light text-white/95 max-w-2xl font-serif italic">Exploring colour as play — where light, tone, and abstraction unfold through instinct and intuition.</p>
                     </motion.div>
                 </div>
             </section>
 
             {/* Leela Section */}
-            <section className="container mx-auto px-4 sm:px-8 py-32 relative z-10">
+            <section className="container mx-auto px-4 sm:px-8 py-15 relative z-10">
+
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={containerVariants}>
-                    <motion.div variants={itemVariants} className="flex items-center gap-8 mb-20">
-                        <div className={`h-px flex-1 bg-gradient-to-r ${isDark ? 'to-[#2A2A2A]' : 'to-[#C4B5A0]'} from-transparent`} />
-                        <h2 className="text-4xl md:text-7xl font-serif uppercase tracking-tight">Leela of Colors</h2>
-                        <div className={`h-px flex-1 bg-gradient-to-l ${isDark ? 'to-[#2A2A2A]' : 'to-[#C4B5A0]'} from-transparent`} />
+                    <motion.div variants={itemVariants} className="flex items-center gap-8 mb-10">
+
+                        <div className={`h-px flex-1 bg-linear-to-r ${isDark ? 'to-[#2A2A2A]' : 'to-[#C4B5A0]'} from-transparent`} />
+
+                        <h2 className="whitespace-nowrap font-brusher text-4xl md:text-7xl font-serif uppercase tracking-tight">Leela of Colors</h2>
+
+                        <div className={`h-px flex-1 bg-linear-to-l ${isDark ? 'to-[#2A2A2A]' : 'to-[#C4B5A0]'} from-transparent`} />
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
@@ -172,7 +182,7 @@ export const Home = () => {
                                 className={`${cardBg} backdrop-blur-sm p-8 md:p-10 rounded-sm border ${borderColor} shadow-xl relative overflow-hidden group transition-all duration-500`}
                             >
                                 <div className={`absolute inset-0 bg-gradient-to-br ${accentGradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                                <p className="text-lg leading-relaxed font-serif text-justify relative z-10">{text}</p>
+                                <p className="text-lg leading-relaxed font-serif text-start relative z-10 tracking-widest">{text}</p>
                             </motion.div>
                         ))}
                     </div>

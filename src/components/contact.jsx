@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { Mail, MapPin, Instagram, Linkedin, Send } from 'lucide-react';
 
 export const Contact = () => {
     const isDark = useSelector((state) => state.theme.isDark);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, []);
 
     // Dynamic Theme Styling
     const bgColor = isDark ? 'bg-[#0A0A0A]' : 'bg-[#F5EFE7]';

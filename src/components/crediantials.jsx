@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { X, Play } from 'lucide-react';
@@ -35,6 +35,11 @@ const exhibitionPhotos = [
 ];
 
 const Credentials = () => {
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, []);
+
     const isDark = useSelector((state) => state.theme.isDark);
     const [selectedVideo, setSelectedVideo] = useState(null);
 

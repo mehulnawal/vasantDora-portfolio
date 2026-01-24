@@ -35,7 +35,7 @@ const ART_TABS = [
     {
         id: "Draupadi_Series",
         title: "Draupadi Series",
-        subtitle: "Draupadi Series",
+        subtitle: "DRAUPADI SERIES",
         description: "She was born of the holy fire,“ She Said Colour me red “",
         images: [
             { id: 1, image: DraupadiSeries1, size: "48 × 48 inches", description: "OIL ON CANVAS", title: "Urban Scape I" },
@@ -49,7 +49,7 @@ const ART_TABS = [
     {
         id: "Mary_Magdalene_Series",
         title: "Mary Magdalene Series",
-        subtitle: "Organic Aggregation",
+        subtitle: "MARY MAGDALENE SERIES",
         description: `She was born in the fishing village of Magdala on the shores of the Sea of Galilee. “Colour me Blue” she Said .`,
         images: [
             { id: 1, image: Mary_Magdalene_Series1, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "SYBIL" },
@@ -59,7 +59,7 @@ const ART_TABS = [
     },
     {
         id: "AMRITA_PRITAM_SERIES",
-        title: "AMRITA PRITAM SERIES",
+        title: "Amrita Pritam Series",
         subtitle: "AMRITA PRITAM SERIES",
         description: "",
         images: [
@@ -70,7 +70,7 @@ const ART_TABS = [
     },
     {
         id: "KHALIL_GIBRAN_SERIES",
-        title: "KHALIL GIBRAN SERIES",
+        title: "Khalil Gibran Series",
         subtitle: "KHALIL GIBRAN SERIES",
         images: [
             { id: 1, image: KHALIL_GIBRAN_SERIES1, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "Dark Moon" },

@@ -15,6 +15,10 @@ export const About = () => {
     const isDark = useSelector((state) => state.theme.isDark);
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, []);
+
     // Dynamic Theme Styling
     const bgColor = isDark ? 'bg-[#0A0A0A]' : 'bg-[#F5EFE7]';
     const textColor = isDark ? 'text-[#F5F5F4]' : 'text-[#2C2416]';
@@ -26,7 +30,7 @@ export const About = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
-        }, 5000);
+        }, 4000);
         return () => clearInterval(timer);
     }, []);
 
@@ -37,7 +41,7 @@ export const About = () => {
         <div className={`min-h-screen transition-colors duration-700 ${bgColor} ${textColor} pt-32 pb-20`}>
 
             {/* 1. HERO SECTION: Client Portrait & Academic Intro */}
-            <section className="container mx-auto px-4 md:px-8 mb-32">
+            <section className="container mx-auto px-4 md:px-8 mb-22">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -70,7 +74,7 @@ export const About = () => {
             </section>
 
             {/* 2. STATS SECTION */}
-            <section className="container mx-auto px-4 mb-32">
+            {/* <section className="container mx-auto px-4 mb-32">
                 <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-y ${borderColor}`}>
                     {[
                         { label: "Exhibitions", value: "25+" },
@@ -84,7 +88,7 @@ export const About = () => {
                         </div>
                     ))}
                 </div>
-            </section>
+            </section> */}
 
             {/* 3. BIOGRAPHY & PHILOSOPHY (From Screenshot Text) */}
             <section className="container mx-auto px-4 md:px-8 mb-32 space-y-24">
@@ -147,7 +151,7 @@ export const About = () => {
             </section>
 
             {/* 5. FINAL INVITE */}
-            <section className="container mx-auto px-4 text-center max-w-3xl pb-20">
+            <section className="container mx-auto px-4 text-center max-w-3xl pb-0">
                 <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
