@@ -234,7 +234,7 @@ export const InspiredFigurative = () => {
                 </div>
 
                 {/* Gallery Carousel */}
-                <div className="flex items-center justify-between mb-8">
+                {/* <div className="flex items-center justify-between mb-8">
                     <h2 className="text-3xl md:text-4xl font-serif">Gallery</h2>
                     <div className="flex gap-4">
                         <button onClick={prevSlide} className={`p-3 md:p-4 rounded-full border-2 ${borderColor} ${cardBg} shadow-lg hover:scale-105 transition-transform`}><ChevronLeft size={20} /></button>
@@ -262,7 +262,7 @@ export const InspiredFigurative = () => {
                             </motion.div>
                         ))}
                     </AnimatePresence>
-                </div>
+                </div> */}
 
             </section>
 
