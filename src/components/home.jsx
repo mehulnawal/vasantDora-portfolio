@@ -95,10 +95,8 @@ export const Home = () => {
                 )}
             </motion.div>
 
-            {/* --- RESPONSIVE BANNERS --- */}
-
             {/* 1. Mobile Vertical Banner (Inspired by The Spaceman UI) */}
-            <section className="relative flex flex-col md:hidden h-screen bg-[#0A0A0A] text-white overflow-hidden">
+            <section className="relative flex flex-col lg:hidden h-screen bg-[#0A0A0A] text-white overflow-hidden">
                 <div className="flex-grow relative w-full h-3/5">
                     <motion.img
                         initial={{ scale: 1.1, opacity: 0 }}
@@ -122,16 +120,16 @@ export const Home = () => {
                     </motion.p>
 
                     {/* Progress Indicator Dots */}
-                    <div className="flex space-x-2 pt-4">
+                    {/* <div className="flex space-x-2 pt-4">
                         <div className="w-6 h-1.5 rounded-full bg-[#D4AF37]" />
                         <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
                         <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
             {/* 2. Desktop Wide Banner */}
-            <section className="hidden md:flex relative h-screen w-full items-end overflow-hidden">
+            <section className="hidden lg:flex relative h-screen w-full items-end overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <motion.img initial={{ scale: 1.1 }} animate={{ scale: 1 }} transition={{ duration: 1.5 }}
                         src={clientImage} alt="Vasant Dora" className="w-full h-full object-cover object-center" />
@@ -150,8 +148,6 @@ export const Home = () => {
                 </div>
             </section>
 
-            {/* --- REST OF THE PAGE --- */}
-
             {/* Leela Section */}
             <section className="container mx-auto px-4 sm:px-8 py-32 relative z-10">
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={containerVariants}>
@@ -163,10 +159,13 @@ export const Home = () => {
 
                     <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
                         {[
-                            "There is an ancient Sanskrit word \"Leela\", which means \"play\" or \"sport\". Leela is both, delight and enjoyment of the moment, childish, disarming and spontaneous...",
-                            "As an artist, my art is at a primal level manifestation of play with colours caught in the matrix of its hues, luminosity, the dance of light and shade...",
-                            "More often than not the figurative or subjective content is present as an allegorical or contextual reference...",
-                            "It is a pleasure to present and share an oeuvre of my art works in this show and catalogue..."
+                            "There is an ancient Sanskrit word \"Leela\", which means \"play\" or \"sport\". Leela is both, delight and enjoyment of the moment, childish, disarming and spontaneous. . It is said in certain sections of theology and mysticism , that the entire act of creation and destruction is an act of the divine absolute’s cosmic play or “ leela “. It is so very akin to a child’s “ play “ caught in the delight of the game played for its own sake devoid of any motivation or with any assigned or presupposed intent. It is rather frolicsome and sheer joy of the activity complete in itself. ",
+
+                            "As an artist, my art is at a primal level manifestation of play with colours caught in the matrix of its hues, luminosity, the dance of light and shade, tonal variations ,mood affecting effervescence or edge defying coalescence",
+
+                            "More often than not the figurative or subjective content is present as an allegorical or contextual reference. The primary intent being “play” of colours or with colours , at times in harmony and at times in splendid conflict and confrontation. This is where my abstraction begins and ends. There often are multiple journeys within my canvasses that opens windows for the viewers to seek interpretations in their own way.",
+
+                            "It is a pleasure to present and share an oeuvre of my art works in this show and catalogue. Hopefully different people will infer different meanings. But then art was never intended to have a single meaning or narrative."
                         ].map((text, i) => (
                             <motion.div
                                 key={i}
