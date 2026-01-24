@@ -130,7 +130,7 @@ export const InspiredFigurative = () => {
         <div className={`select-none transition-all duration-700 ${bgColor} ${textColor} min-h-screen relative pt-32`}>
 
             {/* Banner Section */}
-            <section className="relative pt-32 pb-10 overflow-hidden">
+            <section className="relative pt-32 lg:pb-10 overflow-hidden">
                 <div className="container mx-auto px-2 sm:px-6 md:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -170,14 +170,23 @@ export const InspiredFigurative = () => {
                 </div>
             </section>
 
-            {/* Nav and Tabs Section */}
-            <section className="container mx-auto px-4 sm:px-6 md:px-8 pb-32 mt-10">
-                <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-12 border-b border-white/10">
+            <section className="container mx-auto px-4 sm:px-6 md:px-8 pb-32 mt-0">
+
+                {/* Tabs */}
+                <div className="flex flex-col md:flex-row justify-center gap-3 md:gap-16 mb-12 md:border-b border-[#D4AF37]/30">
                     {ART_TABS.map((tab, index) => (
                         <button
-                            key={tab.id}
-                            onClick={() => { setActiveTab(index); setCurrentIndex(0); }}
-                            className={`pb-4 text-base md:text-xl font-serif transition-all ${activeTab === index ? 'border-b-2 border-[#D4AF37] text-[#D4AF37]' : 'opacity-50'}`} >
+                            key={index}
+                            onClick={() => {
+                                setActiveTab(index);
+                                setCurrentIndex(0);
+                            }}
+                            className={`py-3 md:pb-4 px-6 md:px-6 text-base md:text-xl font-serif transition-all active:scale-95 flex items-center justify-center gap-2 rounded-md md:rounded-none ${activeTab === index
+                                ? 'md:border-b-2 border-[#D4AF37] text-[#D4AF37] bg-[#D4AF37]/10 md:bg-transparent'
+                                : 'opacity-50 hover:opacity-75 border border-[#D4AF37]/20 md:border-none'
+                                }`}
+                        >
+                            <span className="text-sm md:text-base">{activeTab === index ? '◆' : '◇'}</span>
                             {tab.title}
                         </button>
                     ))}
@@ -218,6 +227,43 @@ export const InspiredFigurative = () => {
                         ))}
                     </AnimatePresence>
                 </div>
+
+                <div className="max-w-4xl mx-auto text-center mb-16">
+                    <h3 className="font-brusher text-xl md:text-3xl font-serif mb-4 italic">{ART_TABS[activeTab].subtitle}</h3>
+                    <p className="text-base md:text-2xl leading-relaxed font-light opacity-80">{ART_TABS[activeTab].description}</p>
+                </div>
+
+                {/* Gallery Carousel */}
+                <div className="flex items-center justify-between mb-8">
+                    <h2 className="text-3xl md:text-4xl font-serif">Gallery</h2>
+                    <div className="flex gap-4">
+                        <button onClick={prevSlide} className={`p-3 md:p-4 rounded-full border-2 ${borderColor} ${cardBg} shadow-lg hover:scale-105 transition-transform`}><ChevronLeft size={20} /></button>
+                        <button onClick={nextSlide} className={`p-3 md:p-4 rounded-full border-2 ${borderColor} ${cardBg} shadow-lg hover:scale-105 transition-transform`}><ChevronRight size={20} /></button>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <AnimatePresence mode="popLayout">
+                        {visibleArtworks.map((artwork) => (
+                            <motion.div
+                                key={`${activeTab}-${artwork.id}`}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                onClick={() => setExpandedArtwork(artwork.actualIndex)}
+                                className={`cursor-pointer group border ${borderColor} ${cardBg} p-3 shadow-xl`}
+                            >
+                                <div className="relative overflow-hidden aspect-[4/5]">
+                                    <img src={artwork.image} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
+                                    <div className="absolute bottom-4 right-4 bg-black/50 text-white px-2 py-1 text-xs rounded">
+                                        {artwork.actualIndex + 1} / {currentArtworks.length}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </div>
+
             </section>
 
             {/* Expanded Artwork Modal */}
