@@ -182,7 +182,7 @@ export const SamsaraSeries = () => {
                             // self-start and ml-0 forces it to the left
                             className="relative z-30 self-start ml-0 md:ml-[5%] -mb-4 md:-mb-10"
                         >
-                            <h1 className="font-brusher text-[clamp(3.5rem,16vw,11rem)] leading-none drop-shadow-2xl whitespace-nowrap">
+                            <h1 className="font-brusher text-[clamp(3.5rem,16vw,7rem)] leading-none drop-shadow-2xl whitespace-nowrap">
 
                                 <span className="text-[#6B4A1E]">SA</span>
                                 <span className="text-white">MSARA</span>
@@ -197,7 +197,7 @@ export const SamsaraSeries = () => {
                             className="relative z-20 w-full max-w-4xl group"
                         >
                             <div className={`absolute -inset-2 md:-inset-4 border ${isDark ? 'border-white/10' : 'border-black/10'} -z-10`} />
-                            <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                            <div className="relative aspect-[16/9] md:aspect-[23/8] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                                 <img
                                     src={samsaraSeriesImg}
                                     alt="Samsara Series"
@@ -215,7 +215,7 @@ export const SamsaraSeries = () => {
                             // self-end forces it to the right
                             className="relative z-30 self-end mr-0 md:mr-[5%] mt-4 md:mt-6"
                         >
-                            <h1 className="font-brusher text-[clamp(3.5rem,16vw,11rem)] leading-none drop-shadow-2xl whitespace-nowrap">
+                            <h1 className="font-brusher text-[clamp(3.5rem,16vw,7rem)] leading-none drop-shadow-2xl whitespace-nowrap">
 
                                 <span className="text-white">SERI</span>
                                 <span className="text-[#6B4A1E]">ES</span>

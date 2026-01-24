@@ -18,9 +18,9 @@ export const Footer = () => {
         : 'from-[#8B6914] to-[#DAA520]';
 
     const socialLinks = [
-        { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-        { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-        { icon: Mail, href: 'mailto:contact@vasantdora.com', label: 'Email' }
+        { icon: Instagram, href: 'https://www.instagram.com/abstractart_dora?igsh=MXh6Y3N4OG9tdGo3Yw==', label: 'Instagram' },
+        { icon: Facebook, href: 'https://www.facebook.com/share/1CN3QgibGj/', label: 'Facebook' },
+        { icon: Mail, href: 'mailto:v_dorarch@hotmail.com', label: 'Email' }
     ];
 
     return (
