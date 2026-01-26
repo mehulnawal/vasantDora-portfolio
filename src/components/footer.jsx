@@ -36,7 +36,7 @@ export const Footer = () => {
                         transition={{ duration: 0.6 }}
                         className="text-center md:text-left"
                     >
-                        <h3 className="font-brusher text-3xl md:text-4xl font-serif font-bold tracking-tight mb-2">
+                        <h3 className="font-mistral text-3xl md:text-4xl font-serif font-bold tracking-tight mb-2">
                             Vasant Dora
                         </h3>
                         <motion.div

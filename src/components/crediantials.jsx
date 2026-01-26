@@ -57,7 +57,7 @@ const Credentials = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center mb-24"
                 >
-                    <h1 className="font-brusher text-6xl md:text-8xl font-serif tracking-tighter" >
+                    <h1 className="font-mistral text-6xl md:text-8xl font-serif tracking-tighter" >
                         Credentials
                     </h1>
                     <div className="h-1 w-24 bg-[#D4AF37] mx-auto mt-6" />
@@ -65,7 +65,7 @@ const Credentials = () => {
 
                 {/* Section 1: Videos */}
                 <section className="mb-32">
-                    <h2 className="font-brusher text-2xl md:text-3xl font-serif mb-12 tracking-widest opacity-80 uppercase">
+                    <h2 className="font-mistral text-2xl md:text-3xl font-serif mb-12 tracking-widest opacity-80 uppercase">
                         Testimonials
                     </h2>
 
@@ -96,7 +96,7 @@ const Credentials = () => {
 
                 {/* Section 2: Exhibition Photos (Optimized Bento for Landscape) */}
                 <section>
-                    <h2 className="font-brusher text-2xl md:text-3xl font-serif mb-12 tracking-widest opacity-80 uppercase">
+                    <h2 className="font-mistral text-2xl md:text-3xl font-serif mb-12 tracking-widest opacity-80 uppercase">
                         Exhibition Archive
                     </h2>
 

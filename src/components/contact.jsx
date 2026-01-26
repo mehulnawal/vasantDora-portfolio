@@ -27,7 +27,7 @@ export const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="mb-20"
                 >
-                    <h1 className="text-5xl md:text-8xl font-serif tracking-tighter mb-6">Get in Touch</h1>
+                    <h1 className="font-mistral text-5xl md:text-8xl font-serif tracking-tighter mb-6">Get in Touch</h1>
                     <p className={`text-lg md:text-xl font-serif italic opacity-70 max-w-2xl`}>
                         For commissions, exhibition inquiries, or to simply share a realization — let us begin a conversation.
                     </p>

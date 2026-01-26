@@ -128,7 +128,7 @@ export const SamsaraSeries = () => {
                         className="relative w-full mx-auto mb-28"
                     >
                         <h1
-                            className="relative z-10 text-center whitespace-nowrap leading-none font-extrabold text-[clamp(3rem,9vw,8rem)] font-brusher"
+                            className="relative z-10 text-center whitespace-nowrap leading-none font-extrabold text-[clamp(3rem,9vw,8rem)] font-mistral"
                             style={{ transform: 'skewX(-2deg)' }}
                         >
                             <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>
@@ -144,7 +144,7 @@ export const SamsaraSeries = () => {
                             </span>
                         </h1>
 
-                        <div className="absolute inset-0 flex items-center justify-center -z-0 font-brusher">
+                        <div className="absolute inset-0 flex items-center justify-center -z-0 font-mistral">
                             <div className="relative w-[55%] max-w-3xl h-55 sm:h-[300px] md:h-[360px] overflow-hidden shadow-2xl">
                                 <img
                                     src={samsaraSeriesImg}
@@ -182,7 +182,7 @@ export const SamsaraSeries = () => {
                             // self-start and ml-0 forces it to the left
                             className="relative z-30 self-start ml-0 md:ml-[5%] -mb-4 md:-mb-10"
                         >
-                            <h1 className="font-brusher text-[clamp(3.5rem,16vw,7rem)] leading-none drop-shadow-2xl whitespace-nowrap">
+                            <h1 className="font-mistral text-[clamp(3.5rem,16vw,7rem)] leading-none drop-shadow-2xl whitespace-nowrap">
 
                                 <span className="text-[#6B4A1E]">SA</span>
                                 <span className="text-white">MSARA</span>
@@ -215,7 +215,7 @@ export const SamsaraSeries = () => {
                             // self-end forces it to the right
                             className="relative z-30 self-end mr-0 md:mr-[5%] mt-4 md:mt-6"
                         >
-                            <h1 className="font-brusher text-[clamp(3.5rem,16vw,7rem)] leading-none drop-shadow-2xl whitespace-nowrap">
+                            <h1 className="font-mistral text-[clamp(3.5rem,16vw,7rem)] leading-none drop-shadow-2xl whitespace-nowrap">
 
                                 <span className="text-white">SERI</span>
                                 <span className="text-[#6B4A1E]">ES</span>

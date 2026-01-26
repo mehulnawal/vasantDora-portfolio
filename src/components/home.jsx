@@ -9,12 +9,11 @@ import bannerImg2 from '../assets/images/bannerImage2.png'
 import test1 from '../assets/images/homePage/homePage_Painting1.jpg'
 import test2 from '../assets/images/homePage/homePage_Painting2.jpg'
 
-// DATA: Proportions calculated from physical inches
 const artworks = [
     {
         id: 1,
         image: test1,
-        title: "Selected Work I",
+        title: "",
         size: "48 × 36 inches",
         width: 48,  // width in inches
         height: 36  // height in inches
@@ -22,7 +21,7 @@ const artworks = [
     {
         id: 2,
         image: test2,
-        title: "Selected Work II",
+        title: "",
         size: "60 × 48 inches",
         width: 60,
         height: 48
@@ -134,7 +133,7 @@ export const Home = () => {
                 <div className="h-2/5 flex flex-col items-center justify-center px-8 text-center space-y-6">
                     <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5 }}>
                         <span className="text-[10px] tracking-[0.4em] uppercase opacity-70 block mb-2 font-serif">Contemporary Painter</span>
-                        <h1 className="font-brusher mt-5 text-4xl font-serif tracking-tighter uppercase leading-none">Vasant <br /> Dora</h1>
+                        <h1 className="font-mistral mt-5 text-4xl font-serif tracking-tighter uppercase leading-none">Vasant <br /> Dora</h1>
                     </motion.div>
                     <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="text-xs font-serif italic opacity-60 max-w-xs leading-relaxed text-center">
                         Exploring colour as play — where light, tone, and abstraction unfold through instinct and intuition.
@@ -155,7 +154,7 @@ export const Home = () => {
                             <motion.path d="M 0 8 Q 16 0, 32 8 T 64 8" stroke={isDark ? "#D4AF37" : "#DAA520"} strokeWidth="3" fill="none" strokeLinecap="round" variants={brushStrokeVariants} initial="hidden" animate="visible" />
                         </svg>
                         <span className="text-xs tracking-[0.4em] uppercase mb-4 block text-white/90 font-serif">Contemporary Painter</span>
-                        <h1 className="font-brusher text-5xl md:text-9xl mb-6 text-white leading-none font-serif uppercase tracking-tighter">Vasant Dora</h1>
+                        <h1 className="font-mistral text-5xl md:text-9xl mb-6 text-white leading-none font-serif uppercase tracking-tighter">Vasant Dora</h1>
                         <p className="text-lg md:text-2xl font-light text-white/95 max-w-2xl font-serif italic">Exploring colour as play — where light, tone, and abstraction unfold through instinct and intuition.</p>
                     </motion.div>
                 </div>
@@ -166,7 +165,7 @@ export const Home = () => {
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={containerVariants}>
                     <motion.div variants={itemVariants} className="flex items-center gap-8 mb-10">
                         <div className={`h-px flex-1 bg-linear-to-r ${isDark ? 'to-[#2A2A2A]' : 'to-[#C4B5A0]'} from-transparent`} />
-                        <h2 className="whitespace-nowrap font-brusher text-4xl md:text-7xl font-serif uppercase tracking-tight">Leela of Colors</h2>
+                        <h2 className="whitespace-nowrap font-mistral text-4xl md:text-7xl font-serif uppercase tracking-tight">Leela of Colors</h2>
                         <div className={`h-px flex-1 bg-linear-to-l ${isDark ? 'to-[#2A2A2A]' : 'to-[#C4B5A0]'} from-transparent`} />
                     </motion.div>
                     <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
@@ -192,29 +191,35 @@ export const Home = () => {
             <section className="container mx-auto px-4 sm:px-8 pb-32 relative z-10">
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants}>
                     <motion.div variants={itemVariants} className="flex items-center gap-4 mb-16">
-                        <h3 className="text-3xl md:text-5xl font-serif uppercase tracking-tight">Selected Works</h3>
+                        {/* <h3 className="text-3xl md:text-5xl font-serif uppercase tracking-tight">Selected Works</h3> */}
                         <div className={`h-px flex-1 ${isDark ? 'bg-white/10' : 'bg-black/10'}`} />
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto">
                         {artworks.map((art, index) => (
-                            <motion.div key={art.id} variants={itemVariants} onClick={() => setExpandedArtwork(index)}
-                                className={`relative cursor-pointer group border-2 ${borderColor} ${cardBg} p-4 shadow-2xl transition-all duration-500`}>
-
-                                {/* Proportional Ratio Math based on Inches */}
-                                <div className="relative overflow-hidden w-full flex items-center justify-center bg-black/5"
+                            <motion.div
+                                key={art.id}
+                                variants={itemVariants}
+                                onClick={() => setExpandedArtwork(index)}
+                                className="relative cursor-pointer group transition-all duration-500"
+                            >
+                                <div className="relative overflow-hidden w-full flex items-center justify-center "
                                     style={{ aspectRatio: `${art.width} / ${art.height}` }}>
                                     <img src={art.image}
                                         className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                                         alt="Artwork" />
                                 </div>
-
-                                <div className={`absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 ${isDark ? 'border-[#D4AF37]/20' : 'border-[#8B6914]/20'}`} />
-                                <div className={`absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 ${isDark ? 'border-[#D4AF37]/20' : 'border-[#8B6914]/20'}`} />
                             </motion.div>
                         ))}
                     </div>
                 </motion.div>
+
+                {expandedArtwork !== null && (
+
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4">
+
+                    </div>
+                )}
             </section>
 
             {/* Modal Ensuring Full Visibility */}
@@ -224,32 +229,33 @@ export const Home = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[1000] bg-black/95 p-4 flex flex-col items-center justify-center"
-                    >
+                        className="fixed inset-0 z-[1000] bg-black/95 p-4 flex flex-col items-center justify-center" >
+
                         <div className="absolute inset-0" onClick={() => setExpandedArtwork(null)} />
 
-                        {/* Carousel Navigation */}
-                        <div className="absolute inset-0 flex items-center justify-between px-4 md:px-12 pointer-events-none z-[1010]">
+                        <div className="absolute inset-0 flex items-center justify-between px-4 md:px-12 pointer-events-none z-1010">
+
                             <button onClick={prevSlide} className="p-4 rounded-full bg-white/10 text-white pointer-events-auto hover:bg-white/20 active:scale-90 transition-all shadow-xl">
                                 <ChevronLeft size={40} className="md:w-16 md:h-16" />
                             </button>
+
                             <button onClick={nextSlide} className="p-4 rounded-full bg-white/10 text-white pointer-events-auto hover:bg-white/20 active:scale-90 transition-all shadow-xl">
                                 <ChevronRight size={40} className="md:w-16 md:h-16" />
                             </button>
                         </div>
 
-                        <button onClick={() => setExpandedArtwork(null)} className="absolute top-8 right-8 text-white/70 hover:text-white z-[1020] p-2 bg-white/10 rounded-full">
+                        <button onClick={() => setExpandedArtwork(null)} className="absolute top-8 right-8 text-white/70 hover:text-white z-1020 p-2 bg-white/10 rounded-full">
                             <X size={32} />
                         </button>
 
-                        <div className="relative z-[1005] w-full h-full flex flex-col items-center justify-center gap-6 pointer-events-none">
+                        <div className="relative z-1005 w-full h-full flex flex-col items-center justify-center gap-6 pointer-events-none pt-2">
+
                             <motion.img
                                 key={expandedArtwork}
                                 initial={{ scale: 0.95, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 src={artworks[expandedArtwork].image}
-                                // max-h and object-contain ensures the full canvas is visible without cropping
-                                className="max-w-full max-h-[75vh] object-contain shadow-2xl pointer-events-auto"
+                                className="max-w-full max-h-[75vh] object-contain  pointer-events-auto"
                             />
 
                             <div className="text-center text-white space-y-2 bg-black/40 backdrop-blur-md p-6 rounded-lg pointer-events-auto border border-white/10">

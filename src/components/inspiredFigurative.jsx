@@ -140,7 +140,7 @@ export const InspiredFigurative = () => {
                     >
                         {/* Adjusted text size clamp to be more responsive on mobile */}
                         <h1
-                            className="relative z-10 text-center whitespace-nowrap leading-none font-extrabold text-[clamp(2rem,7.5vw,8rem)] font-brusher"
+                            className="relative z-10 text-center whitespace-nowrap leading-none font-extrabold text-[clamp(2rem,7.5vw,8rem)] font-mistral"
                             style={{ transform: 'skewX(-2deg)' }}
                         >
                             <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>
@@ -156,7 +156,7 @@ export const InspiredFigurative = () => {
                             </span>
                         </h1>
 
-                        <div className="absolute inset-0 flex items-center justify-center z-0 font-brusher">
+                        <div className="absolute inset-0 flex items-center justify-center z-0 font-mistral">
 
                             <div className="relative w-[65%] sm:w-[60%] md:w-[55%] max-w-3xl h-45 sm:h-75 md:h-90 overflow-hidden ">
                                 <img
@@ -193,7 +193,7 @@ export const InspiredFigurative = () => {
                 </div>
 
                 <div className="max-w-4xl mx-auto text-center mb-16">
-                    <h3 className="font-brusher text-xl md:text-3xl font-serif mb-4 italic">{ART_TABS[activeTab].subtitle}</h3>
+                    <h3 className="font-mistral text-xl md:text-3xl font-serif mb-4 italic">{ART_TABS[activeTab].subtitle}</h3>
                     <p className="text-base md:text-2xl leading-relaxed font-light opacity-80">{ART_TABS[activeTab].description}</p>
                 </div>
 
@@ -229,7 +229,7 @@ export const InspiredFigurative = () => {
                 </div>
 
                 <div className="max-w-4xl mx-auto text-center mb-16">
-                    <h3 className="font-brusher text-xl md:text-3xl font-serif mb-4 italic">{ART_TABS[activeTab].subtitle}</h3>
+                    <h3 className="font-mistral text-xl md:text-3xl font-serif mb-4 italic">{ART_TABS[activeTab].subtitle}</h3>
                     <p className="text-base md:text-2xl leading-relaxed font-light opacity-80">{ART_TABS[activeTab].description}</p>
                 </div>
 

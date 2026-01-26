@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -59,13 +59,14 @@ export const About = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         className="w-full lg:w-1/2 space-y-8"
                     >
-                        <h1 className="font-brusher text-4xl md:text-6xl font-serif leading-tight">
+                        <h1 className="font-mistral text-4xl md:text-6xl font-serif leading-tight">
                             Vasant Dora
                         </h1>
-                        <p className="text-xl md:text-2xl font-serif leading-relaxed opacity-90">
+                        {/* Font size normalized to text-lg md:text-xl */}
+                        <p className="text-lg md:text-xl font-serif leading-relaxed opacity-90">
                             I have a master's degree in Architecture from the State University of New York, USA.
                         </p>
-                        <p className="text-lg font-serif opacity-70 leading-loose">
+                        <p className="text-lg md:text-xl font-serif opacity-70 leading-loose">
                             I have widely travelled and, my travels have included multiple visits to some of the
                             best art museums around the world as part of my "education in art."
                         </p>
@@ -73,24 +74,7 @@ export const About = () => {
                 </div>
             </section>
 
-            {/* 2. STATS SECTION */}
-            {/* <section className="container mx-auto px-4 mb-32">
-                <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-y ${borderColor}`}>
-                    {[
-                        { label: "Exhibitions", value: "25+" },
-                        { label: "Collections", value: "Global" },
-                        { label: "Art Series", value: "04" },
-                        { label: "Years Exp.", value: "20+" },
-                    ].map((stat, i) => (
-                        <div key={i} className="text-center">
-                            <h4 className={`text-3xl md:text-5xl font-serif mb-2 ${accentColor}`}>{stat.value}</h4>
-                            <p className="text-[10px] uppercase tracking-[0.3em] opacity-50">{stat.label}</p>
-                        </div>
-                    ))}
-                </div>
-            </section> */}
-
-            {/* 3. BIOGRAPHY & PHILOSOPHY (From Screenshot Text) */}
+            {/* 3. BIOGRAPHY & PHILOSOPHY */}
             <section className="container mx-auto px-4 md:px-8 mb-32 space-y-24">
                 <div className="max-w-4xl mx-auto space-y-12">
                     <motion.div
@@ -98,11 +82,13 @@ export const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         className="space-y-6"
                     >
+                        {/* Font size normalized to text-lg md:text-xl */}
                         <p className="text-lg md:text-xl font-serif leading-relaxed text-justify">
                             I closed my consultancy business in 2022 and have been doing art full time.
                             It has since been an exciting journey...
                         </p>
-                        <p className={`text-2xl md:text-3xl font-serif italic ${accentColor} leading-snug`}>
+                        {/* Font size normalized to text-lg md:text-xl */}
+                        <p className={`text-lg md:text-xl font-serif italic ${accentColor} leading-snug`}>
                             "My art conveys my aspirational indulgence as a chromaphile with the imagery
                             of subjective content often becoming a delusional reality."
                         </p>
@@ -113,6 +99,7 @@ export const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         className={`p-8 md:p-12 ${cardBg} border-l-4 border-[#D4AF37]`}
                     >
+                        {/* Font size normalized to text-lg md:text-xl */}
                         <p className="text-lg md:text-xl font-serif leading-loose opacity-90">
                             The colours and textures signal my core voice appealing to sensorial experience,
                             the storyline vacillates between what is obvious and that which is cryptic.
@@ -155,7 +142,8 @@ export const About = () => {
                 <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="text-2xl md:text-3xl font-serif leading-relaxed mb-12"
+                    /* Font size normalized to text-lg md:text-xl */
+                    className="text-lg md:text-xl font-serif leading-relaxed mb-12"
                 >
                     Come walk with me on this journey to experience my art that exists at the edges of
                     crafted provocation of literal and non literal narratives and at times disquiet illusions
