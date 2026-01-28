@@ -148,7 +148,7 @@ export const SamsaraSeries = () => {
 
 
     return (
-        <div className={`select-none transition-all duration-700 ${bgColor} ${textColor} min-h-screen relative pt-18`}>
+        <div className={`select-none transition-all duration-700 ${bgColor} ${textColor} min-h-screen relative pt-18 lg:pt-22`}>
 
             {/* Banner Section */}
             {/* <section className="relative pt-32 pb-10">

@@ -657,7 +657,7 @@ export const UrbanScapes = () => {
                 </section>
 
                 {/* Text Section */}
-                <div className='mx-auto px-6 pb-10' >
+                <div className='mx-auto px-6 pb-10'>
                     <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto ">
                         <div className={`${cardBg} p-8 border ${borderColor} shadow-2xl`}>
                             <p className="text-base sm:text-lg leading-relaxed font-light text-justify">
@@ -735,7 +735,7 @@ export const UrbanScapes = () => {
                         {specialArtworks.map((art) => (
                             <div
                                 key={art.id}
-                                className="w-full mx-auto lg:mt-0 mt-3"
+                                className="w-full mx-auto mt-3 !lg:mt-0"
                                 style={{
                                     aspectRatio: `${art.hDim} / ${art.vDim}`,
                                 }}
