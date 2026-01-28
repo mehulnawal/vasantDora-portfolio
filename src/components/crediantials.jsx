@@ -110,7 +110,7 @@ const Credentials = () => {
                 </motion.div>
 
                 {/* Section 1: Videos */}
-                <section className="mb-32">
+                <section className="mb-14">
                     <h2 className="font-mistral text-2xl md:text-3xl font-serif mb-12 tracking-widest opacity-80 uppercase">
                         Testimonials
                     </h2>
@@ -141,8 +141,8 @@ const Credentials = () => {
                 </section>
 
                 {/* Section: Published Art Works - CORRECTED */}
-                <section className="mb-12">
-                    <h2 className={`font-mistral text-2xl md:text-3xl font-serif mb-12 tracking-widest opacity-80 uppercase`}>
+                <section className="mb-5">
+                    <h2 className={`font-mistral text-2xl md:text-3xl font-serif mb-3 tracking-widest opacity-80 uppercase`}>
                         Published Art Works
                     </h2>
 
@@ -169,11 +169,11 @@ const Credentials = () => {
 
                 {/* Section: Exhibition List */}
                 <section className="mb-13">
-                    <h2 className="font-mistral text-2xl md:text-3xl font-serif mb-12 tracking-widest opacity-80 uppercase">
+                    <h2 className="font-mistral text-2xl md:text-3xl font-serif mb-5 tracking-widest opacity-80 uppercase">
                         Exhibitions
                     </h2>
 
-                    <div className="grid grid-cols-1 gap-12">
+                    <div className="grid grid-cols-1 gap-5">
                         {exhibitionData.map((exhibit, index) => (
                             <motion.div
                                 key={index}

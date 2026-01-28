@@ -528,6 +528,8 @@ export const UrbanScapes = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    const [expandedSpecialIndex, setExpandedSpecialIndex] = useState(null);
+
     const scrollRef = useRef(null);
     const [expandedIndex, setExpandedIndex] = useState(null);
 
@@ -730,7 +732,7 @@ export const UrbanScapes = () => {
                     </div>
                 </section>
 
-                {specialArtworks.length > 0 && (
+                {/* {specialArtworks.length > 0 && (
                     <section className="px-5 py-3">
                         {specialArtworks.map((art) => (
                             <div
@@ -749,7 +751,75 @@ export const UrbanScapes = () => {
                             </div>
                         ))}
                     </section>
+                )} */}
+
+                {specialArtworks.length > 0 && (
+                    <section className="px-5 py-3">
+                        {specialArtworks.map((art, idx) => (
+                            <div
+                                key={art.id}
+                                className="w-full mx-auto mt-3 !lg:mt-0 cursor-pointer"
+                                style={{ aspectRatio: `${art.hDim} / ${art.vDim}` }}
+                                onClick={() => setExpandedSpecialIndex(idx)}
+                            >
+                                <img
+                                    src={art.image}
+                                    alt={art.size}
+                                    className="w-full h-full md:h-100"
+                                    loading="lazy"
+                                />
+                            </div>
+                        ))}
+                    </section>
                 )}
+
+                <AnimatePresence>
+                    {expandedSpecialIndex !== null && (
+                        <motion.div
+                            className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                        >
+                            {/* CLOSE */}
+                            <button
+                                onClick={() => setExpandedSpecialIndex(null)}
+                                className="absolute top-6 right-6 text-white z-10"
+                            >
+                                <X size={48} />
+                            </button>
+
+                            {/* IMAGE */}
+                            <motion.div
+                                key={expandedSpecialIndex}
+                                initial={{ scale: 0.95, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ duration: 0.3 }}
+                                className="flex flex-col items-center"
+                            >
+                                <img
+                                    src={specialArtworks[expandedSpecialIndex].image}
+                                    alt=""
+                                    className="max-h-[75vh] px-3"
+                                    style={{
+                                        aspectRatio: `${specialArtworks[expandedSpecialIndex].hDim} / ${specialArtworks[expandedSpecialIndex].vDim}`,
+                                    }}
+                                />
+
+                                <div className="mt-6 text-center text-white">
+                                    <p className="text-xl font-serif">
+                                        {specialArtworks[expandedSpecialIndex].size}
+                                    </p>
+                                    <p className="text-sm opacity-60 uppercase mt-1">
+                                        {specialArtworks[expandedSpecialIndex].description}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+
 
                 {/* ================= EXPANDED MODAL ================= */}
                 <AnimatePresence>

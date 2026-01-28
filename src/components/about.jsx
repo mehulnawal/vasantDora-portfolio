@@ -41,10 +41,10 @@ export const About = () => {
     const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
 
     return (
-        <div className={`min-h-screen transition-colors duration-700 ${bgColor} ${textColor} pt-32 pb-20`}>
+        <div className={`min-h-screen transition-colors duration-700 ${bgColor} ${textColor} pt-26 pb-20`}>
 
             {/* 1. HERO SECTION: Client Portrait & Academic Intro */}
-            <section className="container mx-auto px-4 md:px-8 mb-22">
+            <section className="container mx-auto px-4 md:px-8 mb-5">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -60,7 +60,7 @@ export const About = () => {
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        className="w-full lg:w-1/2 space-y-8"
+                        className="w-full lg:w-1/2 space-y-6"
                     >
                         <h1 className="font-mistral text-4xl md:text-6xl font-serif leading-tight">
                             Vasant Dora
@@ -78,8 +78,8 @@ export const About = () => {
             </section>
 
             {/* 3. BIOGRAPHY & PHILOSOPHY */}
-            <section className="container mx-auto px-4 md:px-8 mb-32 space-y-24">
-                <div className="max-w-4xl mx-auto space-y-12">
+            <section className="container mx-auto px-4 md:px-8 mb-8 space-y-24">
+                <div className="max-w-4xl mx-auto space-y-7">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

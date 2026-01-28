@@ -393,6 +393,7 @@ export const SamsaraSeries = () => {
                     ))}
                 </section>
             )}
+
             {/* ================= EXPANDED MODAL ================= */}
             <AnimatePresence>
                 {expandedIndex !== null && (
