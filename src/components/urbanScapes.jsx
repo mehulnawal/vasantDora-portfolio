@@ -501,6 +501,9 @@ import urban4 from '../assets/images/urbanScapes/urban4.png';
 import urban5 from '../assets/images/urbanScapes/urban5.png';
 import urban6 from '../assets/images/urbanScapes/urban6.png';
 import urban7 from '../assets/images/urbanScapes/urban7.png';
+import urban8 from '../assets/images/urbanScapes/urban8.png';
+import urban9 from '../assets/images/urbanScapes/urban9.png';
+import urban10 from '../assets/images/urbanScapes/urban10.png';
 
 const UrbanScapesArtWorks = [
     { id: 1, image: urban1, size: "48 × 48 inches", vDim: 48, hDim: 48, description: "OIL ON CANVAS" },
@@ -509,7 +512,10 @@ const UrbanScapesArtWorks = [
     { id: 4, image: urban4, size: "48 × 48 inches", vDim: 48, hDim: 48, description: "OIL ON CANVAS" },
     { id: 5, image: urban5, size: "60 × 60 inches", vDim: 60, hDim: 60, description: "OIL ON CANVAS" },
     { id: 6, image: urban6, size: "48 × 36 inches", vDim: 48, hDim: 36, description: "OIL ON CANVAS" },
-    { id: 7, image: urban7, size: "48 × 36 inches", vDim: 48, hDim: 36, description: "OIL ON CANVAS" }
+    { id: 7, image: urban7, size: "48 × 36 inches", vDim: 48, hDim: 36, description: "OIL ON CANVAS" },
+    { id: 8, image: urban8, size: "48 × 36 inches", vDim: 48, hDim: 48, description: "OIL ON CANVAS" },
+    { id: 9, image: urban9, size: "48 × 96 inches", vDim: 48, hDim: 96, description: "OIL ON CANVAS" },
+    { id: 10, image: urban10, size: "48 × 36 inches", vDim: 48, hDim: 48, description: "OIL ON CANVAS" },
 ];
 
 export const UrbanScapes = () => {
@@ -525,12 +531,11 @@ export const UrbanScapes = () => {
     const scrollRef = useRef(null);
     const [expandedIndex, setExpandedIndex] = useState(null);
 
-    /* ===== SPLIT ARTWORKS ===== */
     const normalArtworks = UrbanScapesArtWorks.filter(
         (art) => art.hDim !== 96
     );
 
-    const specialArtwork = UrbanScapesArtWorks.find(
+    const specialArtworks = UrbanScapesArtWorks.filter(
         (art) => art.hDim === 96
     );
 
@@ -577,7 +582,7 @@ export const UrbanScapes = () => {
                 <meta property="og:type" content="website" />
             </Helmet>
 
-            <div className={`select-none transition-all duration-700 ${bgColor} ${textColor} min-h-screen relative pt-32`}>
+            <div className={`select-none transition-all duration-700 ${bgColor} ${textColor} min-h-screen relative pt-16 md:pt-32`}>
 
                 {/* Banner Section */}
                 <section className="relative md:pb-10 overflow-hidden px-6">
@@ -677,7 +682,7 @@ export const UrbanScapes = () => {
                 </div>
 
                 {/* ================= DESKTOP CAROUSEL ================= */}
-                <section className="mx-auto px-6 pb-5">
+                <section className="mx-auto px-6">
                     <div className="flex items-center justify-between mb-8">
                         <h2 className="text-4xl font-serif">Gallery</h2>
                         <div className="hidden md:flex gap-4">
@@ -690,7 +695,7 @@ export const UrbanScapes = () => {
                         </div>
                     </div>
 
-                    {/* ===== DESKTOP: CAROUSEL / MOBILE: VERTICAL ===== */}
+                    {/* ===== DESKTOP: CAROUSEL */}
                     <div
                         ref={scrollRef}
                         className="flex md:flex-row gap-3 flex-col md:overflow-x-hidden md:no-scrollbar max-w-7xl mx-auto"
@@ -725,21 +730,24 @@ export const UrbanScapes = () => {
                     </div>
                 </section>
 
-                {specialArtwork && (
-                    <section className="mx-auto pb-10 px-5">
-                        <div
-                            className="w-full mx-auto"
-                            style={{
-                                aspectRatio: `${specialArtwork.hDim} / ${specialArtwork.vDim}`,
-                            }}
-                        >
-                            <img
-                                src={specialArtwork.image}
-                                alt=""
-                                className="w-full h-full md:h-100"
-                                loading="lazy"
-                            />
-                        </div>
+                {specialArtworks.length > 0 && (
+                    <section className="px-5 py-3">
+                        {specialArtworks.map((art) => (
+                            <div
+                                key={art.id}
+                                className="w-full mx-auto lg:mt-0 mt-3"
+                                style={{
+                                    aspectRatio: `${art.hDim} / ${art.vDim}`,
+                                }}
+                            >
+                                <img
+                                    src={art.image}
+                                    alt={art.size}
+                                    className="w-full h-full md:h-100"
+                                    loading="lazy"
+                                />
+                            </div>
+                        ))}
                     </section>
                 )}
 

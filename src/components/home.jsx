@@ -132,7 +132,7 @@ export const Home = () => {
                 </div>
                 <div className="h-2/5 flex flex-col items-center justify-center px-8 text-center space-y-6">
                     <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5 }}>
-                        <span className="text-[10px] tracking-[0.4em] uppercase opacity-70 block mb-2 font-serif">Contemporary Painter</span>
+                        <span className="text-[10px] tracking-[0.4em] uppercase opacity-70 block mb-2 font-serif">Contemporary Artist</span>
                         <h1 className="font-mistral mt-5 text-4xl font-serif tracking-tighter uppercase leading-none">Vasant <br /> Dora</h1>
                     </motion.div>
                     <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="text-xs font-serif italic opacity-60 max-w-xs leading-relaxed text-center">
@@ -153,7 +153,7 @@ export const Home = () => {
                         <svg className="mb-6" width="64" height="16" viewBox="0 0 64 16">
                             <motion.path d="M 0 8 Q 16 0, 32 8 T 64 8" stroke={isDark ? "#D4AF37" : "#DAA520"} strokeWidth="3" fill="none" strokeLinecap="round" variants={brushStrokeVariants} initial="hidden" animate="visible" />
                         </svg>
-                        <span className="text-xs tracking-[0.4em] uppercase mb-4 block text-white/90 font-serif">Contemporary Painter</span>
+                        <span className="text-xs tracking-[0.4em] uppercase mb-4 block text-white/90 font-serif">Contemporary Artist</span>
                         <h1 className="font-mistral text-5xl md:text-9xl mb-6 text-white leading-none font-serif uppercase tracking-tighter">Vasant Dora</h1>
                         <p className="text-lg md:text-2xl font-light text-white/95 max-w-2xl font-serif italic">Exploring colour as play — where light, tone, and abstraction unfold through instinct and intuition.</p>
                     </motion.div>
@@ -172,7 +172,7 @@ export const Home = () => {
                         {[
                             "There is an ancient Sanskrit word “Leela’’, which means “play” or “sport”. Leela is both , delight and enjoyment of the moment , childish , disarming and spontaneous. It is said in certain sections of theology and mysticism , that the entire act of creation and destruction is an act of the divine absolute’s cosmic play or “ leela “. It is so very akin to a child’s “ play “ caught in the delight of the game played for its own sake devoid of any motivation or with any assigned or presupposed intent. It is rather frolicsome and sheer joy of the activity complete in itself.",
 
-                            "As an artist , my art is at a primal level manifestation of play with colours caught in the matrix of its hues , luminosity , the dance of light and shade , tonal variations , mood affecting effervescence or edge defying coalescence. It is a pleasure to present and share an oeuvre of my art works...",
+                            "As an artist , my art is at a primal level manifestation of play with colours caught in the matrix of its hues , luminosity , the dance of light and shade , tonal variations , mood affecting effervescence or edge defying coalescence.",
 
                             "More often than not the figurative or subjective content is present as an allegorical or contextual reference. The primary intent being “play” of colours or with colours , at times in harmony and at times in splendid conflict and confrontation. This is where my abstraction begins and ends. There often are multiple journeys within my canvasses that opens windows for the viewers to seek interpretations in their own way. It is a pleasure to present and share an oeuvre of my art works in this show and catalogue. Hopefully different people will infer different meanings. But then art was never intended to have a single meaning or narrative",
 
@@ -195,7 +195,7 @@ export const Home = () => {
                         <div className={`h-px flex-1 ${isDark ? 'bg-white/10' : 'bg-black/10'}`} />
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10  max-w-6xl mx-auto">
                         {artworks.map((art, index) => (
                             <motion.div
                                 key={art.id}
@@ -229,7 +229,7 @@ export const Home = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[1000] bg-black/95 p-4 flex flex-col items-center justify-center" >
+                        className="fixed inset-0 z-1000 bg-black/95 p-4 flex flex-col items-center justify-center" >
 
                         <div className="absolute inset-0" onClick={() => setExpandedArtwork(null)} />
 
@@ -248,7 +248,7 @@ export const Home = () => {
                             <X size={32} />
                         </button>
 
-                        <div className="relative z-1005 w-full h-full flex flex-col items-center justify-center gap-6 pointer-events-none pt-2">
+                        <div className="relative z-1005 w-full h-full flex flex-col items-center justify-center gap-6 pointer-events-none pt-5">
 
                             <motion.img
                                 key={expandedArtwork}
@@ -258,7 +258,7 @@ export const Home = () => {
                                 className="max-w-full max-h-[75vh] object-contain  pointer-events-auto"
                             />
 
-                            <div className="text-center text-white space-y-2 bg-black/40 backdrop-blur-md p-6 rounded-lg pointer-events-auto border border-white/10">
+                            <div className="text-center text-white space-y-2 bg-black/40 backdrop-blur-md p-6 rounded-lg pointer-events-auto ">
                                 <h2 className="text-2xl font-serif">{artworks[expandedArtwork].title}</h2>
                                 <p className="text-[#D4AF37] text-lg font-serif tracking-widest">{artworks[expandedArtwork].size}</p>
                                 <div className="text-xs tracking-widest opacity-40 font-serif pt-2 uppercase">

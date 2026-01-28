@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+// 
+import clientAboutImg from '../assets/images/about/clientAboutImg.jpeg';
+
 // Assets
 import about_clientImg from '../assets/images/about/about_clientImg.png';
 import aboutImg1 from '../assets/images/about/aboutImg1.png';
@@ -50,7 +53,7 @@ export const About = () => {
                     >
                         <div className="relative group ">
                             <div className={`rounded-lg absolute -inset-4 border border-[#D4AF37]/30 translate-x-2 translate-y-2 -z-10 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500`} />
-                            <img src={about_clientImg} alt="Vasant Dora" className="w-full  transition-all duration-1000 shadow-2xl rounded-lg" />
+                            <img src={clientAboutImg} alt="Vasant Dora" className="w-full  transition-all duration-1000 shadow-2xl rounded-lg" />
                         </div>
                     </motion.div>
 
@@ -109,7 +112,7 @@ export const About = () => {
             </section>
 
             {/* 4. AUTOMATIC & MANUAL CAROUSEL GALLERY */}
-            <section className="container mx-auto px-4 md:px-8 mb-40">
+            <section className="container mx-auto px-4 md:px-8 mb-15">
                 <div className="flex items-center justify-between mb-12">
                     <h2 className="text-3xl font-serif uppercase tracking-widest">Behind the canvas</h2>
                     <div className="flex gap-4">

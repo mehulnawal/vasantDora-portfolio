@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
@@ -13,6 +13,9 @@ import samsaraSeries4 from '../assets/images/samsaraSeries/samsaraSeries4.png/';
 import samsaraSeries5 from '../assets/images/samsaraSeries/samsaraSeries5.png/';
 import samsaraSeries6 from '../assets/images/samsaraSeries/samsaraSeries6.png/';
 import samsaraSeries7 from '../assets/images/samsaraSeries/samsaraSeries7.png/';
+import samsaraSeries8 from '../assets/images/samsaraSeries/samsaraSeries8.png/';
+import samsaraSeries9 from '../assets/images/samsaraSeries/samsaraSeries9.png/';
+import samsaraSeries10 from '../assets/images/samsaraSeries/samsaraSeries10.png/';
 
 const samsaraSeriesScapesArtworks = [
     {
@@ -59,7 +62,25 @@ const samsaraSeriesScapesArtworks = [
         image: samsaraSeries7,
         size: "48 × 48 inches",
         description: "OIL ON CANVAS"
-    }
+    },
+    {
+        id: 8,
+        image: samsaraSeries8,
+        size: "48 × 48 inches",
+        description: "OIL ON CANVAS"
+    },
+    {
+        id: 9,
+        image: samsaraSeries9,
+        size: "36 × 48 inches",
+        description: "OIL ON CANVAS"
+    },
+    {
+        id: 10,
+        image: samsaraSeries10,
+        size: "48 × 48 inches",
+        description: "OIL ON CANVAS"
+    },
 ];
 
 export const SamsaraSeries = () => {
@@ -75,29 +96,12 @@ export const SamsaraSeries = () => {
         })
     }, [])
 
+    const scrollRef = useRef(null);
+
     useEffect(() => {
         document.body.style.overflow = expandedArtwork !== null ? 'hidden' : 'auto';
         return () => { document.body.style.overflow = 'auto'; };
     }, [expandedArtwork]);
-
-    // Combined navigation for Carousel and Modal
-    const nextSlide = (e) => {
-        if (e) e.stopPropagation();
-        if (expandedArtwork !== null) {
-            setExpandedArtwork((prev) => (prev + 1) % samsaraSeriesScapesArtworks.length);
-        } else {
-            setCurrentIndex((prev) => (prev + 1) % samsaraSeriesScapesArtworks.length);
-        }
-    };
-
-    const prevSlide = (e) => {
-        if (e) e.stopPropagation();
-        if (expandedArtwork !== null) {
-            setExpandedArtwork((prev) => (prev - 1 + samsaraSeriesScapesArtworks.length) % samsaraSeriesScapesArtworks.length);
-        } else {
-            setCurrentIndex((prev) => (prev - 1 + samsaraSeriesScapesArtworks.length) % samsaraSeriesScapesArtworks.length);
-        }
-    };
 
     const bgColor = isDark
         ? 'bg-gradient-to-br from-[#0A0A0A] via-[#141414] to-[#1A1A1A]'
@@ -107,6 +111,7 @@ export const SamsaraSeries = () => {
     const cardBg = isDark ? 'bg-[#141414]' : 'bg-white';
     const accentGradient = isDark ? 'from-[#D4AF37] to-[#F4E4C1]' : 'from-[#8B6914] via-[#B8860B] to-[#DAA520]';
     const overlayBg = isDark ? 'bg-black/60' : 'bg-[#F5EFE7]/85';
+    const [expandedIndex, setExpandedIndex] = useState(null);
 
     // Carousel Logic: Get the 3 images starting from currentIndex
     const visibleArtworks = [];
@@ -114,6 +119,33 @@ export const SamsaraSeries = () => {
         const index = (currentIndex + i) % samsaraSeriesScapesArtworks.length;
         visibleArtworks.push({ ...samsaraSeriesScapesArtworks[index], actualIndex: index });
     }
+
+    const normalArtworks = samsaraSeriesScapesArtworks.filter(
+        (art) => art.hDim !== 96
+    );
+
+    const specialArtworks = samsaraSeriesScapesArtworks.filter(
+        (art) => art.hDim === 96
+    );
+
+    const nextSlide = () => {
+        if (!scrollRef.current) return;
+        scrollRef.current.scrollBy({ left: 400, behavior: "smooth" });
+    };
+
+    const prevSlide = () => {
+        if (!scrollRef.current) return;
+        scrollRef.current.scrollBy({ left: -400, behavior: "smooth" });
+    };
+
+    const next = () =>
+        setExpandedIndex((i) => (i + 1) % total);
+
+    const prev = () =>
+        setExpandedIndex((i) => (i - 1 + total) % total);
+
+    const total = normalArtworks.length;
+
 
     return (
         <div className={`select-none transition-all duration-700 ${bgColor} ${textColor} min-h-screen relative pt-18`}>
@@ -292,117 +324,140 @@ export const SamsaraSeries = () => {
                 </div>
             </div>
 
-            {/* Gallery Section */}
-            <section className="container mx-auto px-4 sm:px-6 md:px-8 pb-32 " >
-                <div className="flex items-center justify-between mb-12">
+            {/* ================= DESKTOP CAROUSEL ================= */}
+            <section className="mx-auto px-6">
+                <div className="flex items-center justify-between mb-8">
                     <h2 className="text-4xl font-serif">Gallery</h2>
-                    <div className="flex gap-4">
-                        <button onClick={prevSlide} className={`p-4 rounded-full border-2 ${borderColor} ${cardBg} shadow-lg hover:scale-105 transition-transform`}><ChevronLeft size={24} /></button>
-                        <button onClick={nextSlide} className={`p-4 rounded-full border-2 ${borderColor} ${cardBg} shadow-lg hover:scale-105 transition-transform`}><ChevronRight size={24} /></button>
+                    <div className="hidden md:flex gap-4">
+                        <button onClick={prevSlide} className="p-4">
+                            <ChevronLeft size={24} />
+                        </button>
+                        <button onClick={nextSlide} className="p-4">
+                            <ChevronRight size={24} />
+                        </button>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                {/* ===== DESKTOP: CAROUSEL / MOBILE: VERTICAL ===== */}
+                <div
+                    ref={scrollRef}
+                    className="flex md:flex-row gap-3 flex-col md:overflow-x-hidden md:no-scrollbar max-w-7xl mx-auto"
+                >
                     <AnimatePresence mode="popLayout">
-                        {visibleArtworks.map((artwork) => {
-                            const hasText = artwork.title || artwork.size;
-                            return (
-                                <motion.div
-                                    key={artwork.id}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.4 }}
-                                    onClick={() => setExpandedArtwork(artwork.actualIndex)}
-                                    className={`cursor-pointer group border ${borderColor} ${cardBg} p-3 shadow-xl`}
+                        {normalArtworks.map((art, idx) => (
+                            <motion.div
+                                key={art.id}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.95 }}
+                                transition={{ duration: 0.3 }}
+                                onClick={() => setExpandedIndex(idx)}
+                                className="cursor-pointer shrink-0 md:w-[33.333%] w-full flex justify-center"
+                            >
+                                <div
+                                    className="w-full"
+                                    style={{
+                                        aspectRatio: `${art.hDim} / ${art.vDim}`,
+                                    }}
                                 >
-                                    <div className="relative overflow-hidden aspect-4/5">
-                                        <img src={artwork.image} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
-                                        {hasText && (
-                                            <div className={`absolute inset-0 ${overlayBg} opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6`}>
-                                                <div>
-                                                    <h4 className="text-xl font-serif">{artwork.title}</h4>
-                                                    <p className="text-sm opacity-70">{artwork.size}</p>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
+                                    <img
+                                        src={art.image}
+                                        alt=""
+                                        className="w-full h-full object-contain"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </motion.div>
+                        ))}
                     </AnimatePresence>
                 </div>
-            </section >
+            </section>
 
-            {/* Expanded Artwork Modal */}
-            < AnimatePresence AnimatePresence >
-                {expandedArtwork !== null && (
+            {specialArtworks.length > 0 && (
+                <section className="px-5">
+                    {specialArtworks.map((art) => (
+                        <div
+                            key={art.id}
+                            className="w-full mx-auto "
+                            style={{
+                                aspectRatio: `${art.hDim} / ${art.vDim}`,
+                            }}
+                        >
+                            <img
+                                src={art.image}
+                                alt={art.size}
+                                className="w-full h-full md:h-100"
+                                loading="lazy"
+                            />
+                        </div>
+                    ))}
+                </section>
+            )}
+            {/* ================= EXPANDED MODAL ================= */}
+            <AnimatePresence>
+                {expandedIndex !== null && (
                     <motion.div
+                        className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-200 flex items-center justify-center bg-black/98 p-4 md:p-12"
                     >
-                        {/* Backdrop Click to Close */}
-                        <div className="absolute inset-0" onClick={() => setExpandedArtwork(null)} />
-
-                        {/* Navigation Controls */}
-                        <button onClick={prevSlide} className="absolute left-4 md:left-10 text-white/40 hover:text-white z-50 transition-colors">
-                            <ChevronLeft size={64} />
-                        </button>
-                        <button onClick={nextSlide} className="absolute right-4 md:right-10 text-white/40 hover:text-white z-50 transition-colors">
-                            <ChevronRight size={64} />
-                        </button>
-                        <button onClick={() => setExpandedArtwork(null)} className="absolute top-8 right-8 text-white/70 hover:text-white z-50">
-                            <X size={40} />
+                        {/* CLOSE */}
+                        <button
+                            onClick={() => setExpandedIndex(null)}
+                            className="absolute top-6 right-6 text-white z-10"
+                        >
+                            <X size={48} />
                         </button>
 
-                        <div className="relative w-full max-w-7xl h-full flex flex-col lg:flex-row items-center justify-center gap-12 pointer-events-none">
-                            {/* Image Container */}
-                            <div className={`${samsaraSeriesScapesArtworks[expandedArtwork].title ? 'lg:w-2/3' : 'w-full'} h-[60vh] lg:h-[80vh] flex flex-col items-center justify-center gap-6 pointer-events-auto`}>
-                                <motion.img
-                                    key={expandedArtwork}
-                                    initial={{ scale: 0.8, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    src={samsaraSeriesScapesArtworks[expandedArtwork].image}
-                                    className="max-w-full max-h-full object-contain shadow-2xl"
-                                />
-                                {/* Counter for images WITHOUT text */}
-                                {!samsaraSeriesScapesArtworks[expandedArtwork].title && (
-                                    <p className="text-white/40 tracking-[0.3em] text-sm uppercase font-serif">
-                                        {expandedArtwork + 1} / {samsaraSeriesScapesArtworks.length}
-                                    </p>
-                                )}
+                        {/* NAV */}
+                        <button
+                            onClick={prev}
+                            className="absolute left-4 md:left-10 text-white z-10"
+                        >
+                            <ChevronLeft size={48} />
+                        </button>
+
+                        <button
+                            onClick={next}
+                            className="absolute right-4 md:right-10 text-white z-10"
+                        >
+                            <ChevronRight size={48} />
+                        </button>
+
+                        {/* IMAGE */}
+                        <motion.div
+                            key={expandedIndex}
+                            onClick={(e) => e.stopPropagation()}
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.3 }}
+                            className="flex flex-col items-center"
+                        >
+                            <img
+                                src={normalArtworks[expandedIndex].image}
+                                alt=""
+                                className="max-h-[75vh] max-w-[90vw] object-contain"
+                                style={{
+                                    aspectRatio: `${normalArtworks[expandedIndex].hDim} / ${normalArtworks[expandedIndex].vDim}`,
+                                }}
+                            />
+
+                            <div className="mt-6 text-center text-white">
+                                <p className="text-xl font-serif">
+                                    {normalArtworks[expandedIndex].size}
+                                </p>
+                                <p className="text-sm opacity-60 uppercase mt-1">
+                                    {normalArtworks[expandedIndex].description}
+                                </p>
+                                <p className="text-xs opacity-40 mt-3">
+                                    {expandedIndex + 1} / {total}
+                                </p>
                             </div>
-
-                            {/* Info Sidebar (Only if Title exists) */}
-                            {samsaraSeriesScapesArtworks[expandedArtwork].title && (
-                                <motion.div
-                                    key={`info-${expandedArtwork}`}
-                                    initial={{ x: 50, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
-                                    className="w-full lg:w-1/3 text-white space-y-6 flex flex-col pointer-events-auto"
-                                >
-                                    <div className={`h-1 w-12 bg-gradient-to-r ${accentGradient}`} />
-                                    <div>
-                                        <p className="text-xs tracking-[0.3em] uppercase opacity-50 mb-2">Selected Scape</p>
-                                        <h2 className="text-4xl md:text-5xl font-serif leading-tight">{samsaraSeriesScapesArtworks[expandedArtwork].title}</h2>
-                                    </div>
-                                    <div className="space-y-4 pt-6 border-t border-white/10">
-                                        <p className="text-[#D4AF37] text-xl font-serif">{samsaraSeriesScapesArtworks[expandedArtwork].size}</p>
-                                        <p className="text-lg opacity-70 leading-relaxed font-serif">{samsaraSeriesScapesArtworks[expandedArtwork].description}</p>
-                                    </div>
-                                    <div className="pt-8">
-                                        <p className="text-white/40 tracking-[0.3em] text-sm uppercase font-serif">
-                                            {expandedArtwork + 1} / {samsaraSeriesScapesArtworks.length}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            )}
-                        </div>
+                        </motion.div>
                     </motion.div>
                 )}
-            </ AnimatePresence>
+            </AnimatePresence>
         </div >
     );
 };

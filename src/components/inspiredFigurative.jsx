@@ -130,7 +130,7 @@ export const InspiredFigurative = () => {
         <div className={`select-none transition-all duration-700 ${bgColor} ${textColor} min-h-screen relative pt-32`}>
 
             {/* Banner Section */}
-            <section className="relative pt-32 lg:pb-10 overflow-hidden">
+            {/* <section className="relative pt-32 lg:pb-10 overflow-hidden">
                 <div className="container mx-auto px-2 sm:px-6 md:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -138,7 +138,6 @@ export const InspiredFigurative = () => {
                         transition={{ duration: 1 }}
                         className="relative w-full mx-auto mb-28"
                     >
-                        {/* Adjusted text size clamp to be more responsive on mobile */}
                         <h1
                             className="relative z-10 text-center whitespace-nowrap leading-none font-extrabold text-[clamp(2rem,7.5vw,8rem)] font-mistral"
                             style={{ transform: 'skewX(-2deg)' }}
@@ -166,6 +165,77 @@ export const InspiredFigurative = () => {
                                 />
                             </div>
                         </div>
+                    </motion.div>
+                </div>
+            </section> */}
+
+            {/* Banner Section */}
+            <section className="relative md:pb-10 overflow-hidden">
+                <div className="container mx-auto px-4 sm:px-6">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1.2 }}
+                        // min-height ensures the section is prominent on mobile
+                        className="relative flex flex-col items-center justify-center min-h-[55vh] md:min-h-[70vh]"
+                    >
+                        {/* Background Decorative Text */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+                            <span className={`text-[18vw] md:text-[12vw] font-serif uppercase tracking-[0.2em] opacity-[0.03] whitespace-nowrap select-none ${isDark ? 'text-white' : 'text-black'}`}>
+                                SAMSARA SERIES
+                            </span>
+                        </div>
+
+                        {/* Top Text Layer: "SAMSARA" - Aligned Left */}
+                        <motion.div
+                            initial={{ x: -50, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.3 }}
+                            // self-start and ml-0 forces it to the left
+                            className="relative z-30 self-start ml-0 md:ml-[5%] -mb-4 md:-mb-10"
+                        >
+                            <h1 className="font-mistral text-[clamp(3.5rem,16vw,7rem)] leading-none drop-shadow-2xl whitespace-nowrap">
+
+                                <span className="text-[#6B4A1E]">INS</span>
+                                <span className="text-white">PIRED</span>
+                            </h1>
+                        </motion.div>
+
+                        {/* Middle Layer: Image "The Portal" */}
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 1, ease: "easeOut" }}
+                            className="relative z-20 w-full max-w-4xl group"
+                        >
+                            <div className={`absolute -inset-2 md:-inset-4 border ${isDark ? 'border-white/10' : 'border-black/10'} -z-10`} />
+                            <div className="relative aspect-video md:aspect-23/8 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                                <img
+                                    src={inpiredFigurativeBannerImg}
+                                    alt="INSPIRED FIGURATIVE"
+                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/20" />
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ x: 50, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: 0.6 }}
+                            // self-end forces it to the right
+                            className="relative z-30 self-end mr-0 md:mr-[5%] mt-4 md:mt-6"
+                        >
+                            <h1 className="font-mistral text-[clamp(3.5rem,16vw,7rem)] leading-none drop-shadow-2xl whitespace-nowrap">
+
+                                <span className="text-white">FIGURA</span>
+                                <span className="text-[#6B4A1E]">TIVE</span>
+                            </h1>
+                        </motion.div>
+
+                        {/* Abstract Decorative Lines */}
+                        <div className={`absolute left-0 top-1/2 w-12 md:w-24 h-px ${isDark ? 'bg-white/20' : 'bg-black/20'} hidden lg:block`} />
+                        <div className={`absolute right-0 top-1/2 w-12 md:w-24 h-px ${isDark ? 'bg-white/20' : 'bg-black/20'} hidden lg:block`} />
                     </motion.div>
                 </div>
             </section>
@@ -228,10 +298,10 @@ export const InspiredFigurative = () => {
                     </AnimatePresence>
                 </div>
 
-                <div className="max-w-4xl mx-auto text-center mb-16">
+                {/* <div className="max-w-4xl mx-auto text-center mb-16">
                     <h3 className="font-mistral text-xl md:text-3xl font-serif mb-4 italic">{ART_TABS[activeTab].subtitle}</h3>
                     <p className="text-base md:text-2xl leading-relaxed font-light opacity-80">{ART_TABS[activeTab].description}</p>
-                </div>
+                </div> */}
 
                 {/* Gallery Carousel */}
                 {/* <div className="flex items-center justify-between mb-8">

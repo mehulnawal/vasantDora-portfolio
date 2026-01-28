@@ -7,7 +7,7 @@ import { X, Play } from 'lucide-react';
 import video1 from '../assets/videos/video1.mp4';
 import video2 from '../assets/videos/video2.mp4';
 
-// videos 
+// thumbnails 
 import videoThumnail1 from '../assets/images/Credentials/videoThumnail1.png'
 import videoThumnail2 from '../assets/images/Credentials/videoThumnail2.png'
 
@@ -21,7 +21,6 @@ import exhibitionPhotos6 from '../assets/images/Credentials/exhibition6.png'
 import exhibitionPhotos7 from '../assets/images/Credentials/exhibition7.png'
 import exhibitionPhotos8 from '../assets/images/Credentials/exhibition8.png'
 
-
 // Swap these with your actual assets
 const testimonialVideos = [
     { id: 1, url: video1, thumbnail: videoThumnail1, title: "" },
@@ -32,6 +31,53 @@ const testimonialVideos = [
 const exhibitionPhotos = [
     exhibitionPhotos1, exhibitionPhotos2, exhibitionPhotos3, exhibitionPhotos4,
     exhibitionPhotos5, exhibitionPhotos6, exhibitionPhotos8, exhibitionPhotos7
+];
+
+// Fixed Published Art Works Data Structure
+const publishedArtWorks = [
+    {
+        title: "ARCHITECTURE + DESIGN MAGAZINE",
+        details: "( A + D ) , July 2018 Issue."
+    }
+];
+
+const exhibitionData = [
+    {
+        title: "ROOTS AND WINGS",
+        location: "Agora Gallery, Chelsea, New York",
+        type: "Collective / Group Show",
+        date: "2nd March – 22nd March, 2019"
+    },
+    {
+        title: "RIOT & COLORS",
+        location: "Agora Gallery, Chelsea, New York",
+        type: "Collective / Group Show",
+        date: "26th July – 7th August, 2019"
+    },
+    {
+        title: "GLIMPSES ON THE MOVE",
+        location: "Ivana Art | Taj Westend, Bangalore, India",
+        type: "Group Show",
+        date: "4th October – 6th October 2019"
+    },
+    {
+        title: "AUTUMN SYMPHONIES",
+        location: "AIFACS (All India Fine Arts & Crafts Society), New Delhi, India",
+        type: "Group Show",
+        date: "22nd October – 28th October 2021"
+    },
+    {
+        title: "A WALK AMONG SOULS",
+        location: "Stainless Gallery, New Delhi",
+        type: "Group Show",
+        date: "April 14th – April 18th 2022"
+    },
+    {
+        title: "TAJ ART GALLERY",
+        location: "Ivana Art | Taj Mahal Hotel, Mumbai, India",
+        type: "Group Show",
+        date: "8th December – 11th December 2024"
+    }
 ];
 
 const Credentials = () => {
@@ -94,51 +140,96 @@ const Credentials = () => {
                     </div>
                 </section>
 
-                {/* Section 2: Exhibition Photos (Optimized Bento for Landscape) */}
+                {/* Section: Published Art Works - CORRECTED */}
+                <section className="mb-12">
+                    <h2 className={`font-mistral text-2xl md:text-3xl font-serif mb-12 tracking-widest opacity-80 uppercase`}>
+                        Published Art Works
+                    </h2>
+
+                    <div className={`grid grid-cols-1 gap-12 border-b ${borderColor} last:border-0`}>
+                        {publishedArtWorks.map((work, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8 }}
+                                viewport={{ once: true }}
+                                className={`pb-8 border-b ${borderColor} last:border-0`}
+                            >
+                                <h3 className="text-2xl md:text-3xl font-serif tracking-widest mb-2 text-[#D4AF37]">
+                                    {work.title}
+                                </h3>
+                                <p className="text-lg font-serif italic opacity-80">
+                                    {work.details}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Section: Exhibition List */}
+                <section className="mb-13">
+                    <h2 className="font-mistral text-2xl md:text-3xl font-serif mb-12 tracking-widest opacity-80 uppercase">
+                        Exhibitions
+                    </h2>
+
+                    <div className="grid grid-cols-1 gap-12">
+                        {exhibitionData.map((exhibit, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className={`pb-8 border-b ${borderColor} last:border-0`}
+                            >
+                                <h3 className="text-2xl md:text-3xl font-serif tracking-widest mb-2 text-[#D4AF37]">
+                                    {exhibit.title}
+                                </h3>
+                                <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-2">
+                                    <div className="space-y-1">
+                                        <p className="text-lg opacity-90 font-serif tracking-tight">{exhibit.location}</p>
+                                        <p className="text-sm opacity-60 uppercase tracking-[0.2em]">{exhibit.type}</p>
+                                    </div>
+                                    <p className="text-lg font-serif italic opacity-80">{exhibit.date}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Section: Exhibition Archive (Masonry Format) */}
                 <section>
                     <h2 className="font-mistral text-2xl md:text-3xl font-serif mb-12 tracking-widest opacity-80 uppercase">
                         Exhibition Archive
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-6 gap-4 auto-rows-[200px]">
-                        {exhibitionPhotos.map((photo, index) => {
-
-                            const gridClasses = [
-                                "md:col-span-4 md:row-span-2", // Large lead image
-                                "md:col-span-2 md:row-span-1", // Small landscape
-                                "md:col-span-2 md:row-span-1", // Small landscape
-                                "md:col-span-3 md:row-span-1", // Medium Wide
-                                "md:col-span-3 md:row-span-1", // Medium Wide
-                                "md:col-span-2 md:row-span-1", // Small landscape
-                                "md:col-span-4 md:row-span-1", // Very Wide
-                                "md:col-span-6 md:row-span-1"  // Full Width Cinematic
-                            ];
-
-                            return (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: index * 0.05 }}
-                                    viewport={{ once: true }}
-                                    whileHover={{ y: -5 }}
-                                    className={`relative overflow-hidden border ${borderColor} shadow-lg ${gridClasses[index] || "md:col-span-2"}`}
-                                >
+                    <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+                        {exhibitionPhotos.map((photo, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.05 }}
+                                viewport={{ once: true }}
+                                whileHover={{ y: -5 }}
+                                className="break-inside-avoid"
+                            >
+                                <div className={`relative overflow-hidden rounded-sm group`}>
                                     <img
                                         src={photo}
-                                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                                        alt="Exhibition Moment"
+                                        className="w-full h-auto block object-contain hover:scale-105 transition-transform duration-1000"
+                                        alt={`Exhibition Moment ${index + 1}`}
                                     />
-                                    {/* Subtle Overlay to make it look premium */}
                                     <div className="absolute inset-0 bg-black/5 pointer-events-none group-hover:bg-transparent transition-colors" />
-                                </motion.div>
-                            );
-                        })}
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </section>
             </div>
 
-            {/* Video Expansion Modal - Corrected Close Button Visibility */}
+            {/* Video Expansion Modal */}
             <AnimatePresence>
                 {selectedVideo && (
                     <motion.div
@@ -147,7 +238,6 @@ const Credentials = () => {
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 z-[500] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4"
                     >
-                        {/* High Visibility Close Button */}
                         <motion.button
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
@@ -169,7 +259,7 @@ const Credentials = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div>
+        </div >
     );
 };
 
