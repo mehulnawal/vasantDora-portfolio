@@ -660,21 +660,21 @@ export const UrbanScapes = () => {
                 <div className='mx-auto px-6 pb-10'>
                     <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto ">
                         <div className={`${cardBg} p-8 border ${borderColor} shadow-2xl`}>
-                            <p className="text-base sm:text-lg leading-relaxed font-light text-justify">
+                            <p className="text-base sm:text-lg leading-relaxed font-light ">
                                 Through my Habitat Scape Series of art works, the artist in the architect , is exploring at an analogous level the unstructured and the organic construct of the Urban morphology in our towns and cities.
                             </p>
-                            <p className="text-base sm:text-lg leading-relaxed font-light text-justify mt-2.5">
-                                As a trained architect I would respond to order , symmetry , planned physical form and shapes , formal geometry , street manners , climate and any other validated and contextual visual narrative that would define contemporary architecture.
+                            <p className="text-base sm:text-lg leading-relaxed font-light  mt-2.5">
+                                As a trained architect I would respond to order , symmetry, planned physical form and shapes, formal geometry, street manners , climate and any other validated and contextual visual narrative that would define contemporary architecture.
                             </p>
-                            <p className="text-base sm:text-lg leading-relaxed font-light text-justify mt-2.5">
+                            <p className="text-base sm:text-lg leading-relaxed font-light  mt-2.5">
                                 As an artist what fascinates me is the entirely different urban contextual form and visual narrative that exists more predominantly in the urban fabric of our towns and cities that are often referred to as unplanned development chaotic in its visual character.
                             </p>
                         </div>
                         <div className={`${cardBg} p-8 border ${borderColor} shadow-2xl`}>
-                            <p className="text-base sm:text-lg leading-relaxed font-light text-justify">
+                            <p className="text-base sm:text-lg leading-relaxed font-light ">
                                 It more often is organic development that was “architectured” by the users and common people. The seemingly chaotic aggregation of the habitat mass that exists in multiple layers beyond the mere brick and mortar of the physical façade and where the physical aspect serves the functional purpose of its subliminal construct.
                             </p>
-                            <p className="text-base sm:text-lg leading-relaxed font-light text-justify mt-2.5">
+                            <p className="text-base sm:text-lg leading-relaxed font-light  mt-2.5">
                                 At an entirely different level of perception to the cognitive construct of my “ trained “ understanding as an architect , I have also often been compelled to wonder of what lies beyond and within the habitat scapes and human tenements. It is here that my art points to a direction for the viewer to unravel the mysteries that is symbiotically woven in the physical construct and character , in the masses and voids , narrow lanes and by lanes of these organic settlements through the prism their own life experiences and interpretations
                             </p>
                         </div>

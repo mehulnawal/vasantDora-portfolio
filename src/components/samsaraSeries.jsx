@@ -265,7 +265,7 @@ export const SamsaraSeries = () => {
             <div className='container mx-auto px-4 sm:px-6 md:px-8 pb-10' >
                 <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto ">
                     <div className={`${cardBg} p-8 border ${borderColor} shadow-2xl`}>
-                        <p className="text-base sm:text-lg leading-relaxed font-light text-justify">
+                        <p className="text-base sm:text-lg leading-relaxed font-light ">
                             Samsara in the Hindu philosophy is
                             broadly interpreted as the endless
                             cycle of birth , death , rebirth or the
@@ -275,7 +275,7 @@ export const SamsaraSeries = () => {
                             being the Purusha and Prakri
                         </p>
 
-                        <p className="text-base sm:text-lg leading-relaxed font-light text-justify mt-2.5">
+                        <p className="text-base sm:text-lg leading-relaxed font-light  mt-2.5">
                             Purusha ( Shiv ) and Prakriti
                             ( Shakti ) are the two abstract entities
                             as defined in the Sankhya philosophy
@@ -285,7 +285,7 @@ export const SamsaraSeries = () => {
                             nature.
                         </p>
 
-                        <p className="text-base sm:text-lg leading-relaxed font-light text-justify mt-2.5">
+                        <p className="text-base sm:text-lg leading-relaxed font-light  mt-2.5">
                             Purusha is the spirit , self or
                             consciousness , is inactive , universal
                             and eternal representing the male
@@ -298,9 +298,9 @@ export const SamsaraSeries = () => {
                         </p>
                     </div>
                     <div className={`${cardBg} p-8 border ${borderColor} shadow-2xl`}>
-                        <p className="text-base sm:text-lg leading-relaxed font-light text-justify">
+                        <p className="text-base sm:text-lg leading-relaxed font-light ">
                             I dwell in the concept of Prakriti
-                            ( Shakti ) in the realms of my art
+                            (Shakti) in the realms of my art
                             works. Shakti or Bhudevi in the Hindu
                             worldview is the mother goddess ,
                             which receives the seed in her womb
@@ -315,7 +315,7 @@ export const SamsaraSeries = () => {
                             of sensuality , untamed passion ,
                             corporeal desires , that is physically
                             imbued in the soul of
-                            Prakriti ( Nature ) to serve the
+                            Prakriti (Nature) to serve the
                             primordial purpose of the continuum
                             of existence , or the eternal cycle of “
                             SAMSARA “
