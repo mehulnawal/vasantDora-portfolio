@@ -168,7 +168,7 @@ const Credentials = () => {
                 </section>
 
                 {/* Section: Exhibition List */}
-                <section className="mb-13">
+                <section className="mb-6">
                     <h2 className="font-mistral text-2xl md:text-3xl font-serif mb-5 tracking-widest opacity-80 uppercase">
                         Exhibitions
                     </h2>

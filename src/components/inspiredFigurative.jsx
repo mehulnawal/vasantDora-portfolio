@@ -29,8 +29,6 @@ import KHALIL_GIBRAN_SERIES1 from '../assets/images/inspiredFigurative/KHALIL_GI
 import KHALIL_GIBRAN_SERIES2 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES2.png';
 import KHALIL_GIBRAN_SERIES3 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES3_36x36_square.png';
 
-
-
 const ART_TABS = [
     {
         id: "Draupadi_Series",
