@@ -505,6 +505,9 @@ import urban8 from '../assets/images/urbanScapes/urban8.png';
 import urban9 from '../assets/images/urbanScapes/urban9.png';
 import urban10 from '../assets/images/urbanScapes/urban10.png';
 
+// urbanAreaWithPainting
+import urbanAreaWithPainting from '../assets/images/urbanScapes/urbanAreaWithPainting.png'
+
 const UrbanScapesArtWorks = [
     { id: 1, image: urban1, size: "48 × 48 inches", vDim: 48, hDim: 48, description: "OIL ON CANVAS" },
     { id: 2, image: urban2, size: "48 × 48 inches", vDim: 48, hDim: 48, description: "OIL ON CANVAS" },
@@ -659,7 +662,7 @@ export const UrbanScapes = () => {
                 </section>
 
                 {/* Text Section */}
-                <div className='mx-auto px-6 pb-10'>
+                <div className='mx-auto px-6 pb-7'>
                     <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto ">
                         <div className={`${cardBg} p-8 border ${borderColor} shadow-2xl`}>
                             <p className="text-base sm:text-lg leading-relaxed font-light ">
@@ -682,6 +685,18 @@ export const UrbanScapes = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* urbanAreaWithPainting */}
+                <section className='mb-5'>
+                    <motion.img
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        src={urbanAreaWithPainting}
+
+                        /* 5. Fully visible in all devices */
+                        className="max-w-full max-h-[70vh] object-contain mx-auto pointer-events-auto"
+                    />
+                </section>
 
                 {/* ================= DESKTOP CAROUSEL ================= */}
                 <section className="mx-auto px-6">
