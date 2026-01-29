@@ -616,8 +616,8 @@ export const UrbanScapes = () => {
                             >
                                 <h1 className="font-mistral text-[clamp(3.5rem,16vw,7rem)] leading-none drop-shadow-2xl whitespace-nowrap">
 
-                                    <span className="text-[#6B4A1E]">UR</span>
-                                    <span className="text-white">BAN</span>
+                                    <span className="text-[#6B4A1E]">HA</span>
+                                    <span className="text-white">BITAT</span>
                                 </h1>
                             </motion.div>
 
@@ -632,7 +632,7 @@ export const UrbanScapes = () => {
                                 <div className="relative aspect-[16/9] md:aspect-[23/8] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                                     <img
                                         src={urbanScapesBannerImg}
-                                        alt="Samsara Series"
+                                        alt="Habitat Scapes"
                                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
