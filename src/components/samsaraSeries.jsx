@@ -328,7 +328,7 @@ export const SamsaraSeries = () => {
             <section className="mx-auto px-6">
                 <div className="flex items-center justify-between mb-8">
                     <h2 className="text-4xl font-serif">Gallery</h2>
-                    <div className="hidden md:flex gap-4">
+                    <div className="hidden md:flex gap-8">
                         <button onClick={prevSlide} className="p-4">
                             <ChevronLeft size={24} />
                         </button>
@@ -341,7 +341,7 @@ export const SamsaraSeries = () => {
                 {/* ===== DESKTOP: CAROUSEL / MOBILE: VERTICAL ===== */}
                 <div
                     ref={scrollRef}
-                    className="flex md:flex-row gap-3 flex-col md:overflow-x-hidden md:no-scrollbar max-w-7xl mx-auto"
+                    className="flex md:flex-row gap-6 flex-col md:overflow-x-hidden md:no-scrollbar max-w-7xl mx-auto"
                 >
                     <AnimatePresence mode="popLayout">
                         {normalArtworks.map((art, idx) => (

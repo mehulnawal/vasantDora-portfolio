@@ -687,7 +687,7 @@ export const UrbanScapes = () => {
                 </div>
 
                 {/* urbanAreaWithPainting */}
-                <section className='mb-5'>
+                <section className='mb-17'>
                     <motion.img
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
@@ -702,7 +702,7 @@ export const UrbanScapes = () => {
                 <section className="mx-auto px-6">
                     <div className="flex items-center justify-between mb-8">
                         <h2 className="text-4xl font-serif">Gallery</h2>
-                        <div className="hidden md:flex gap-4">
+                        <div className="hidden md:flex gap-8">
                             <button onClick={prevSlide} className="p-4">
                                 <ChevronLeft size={24} />
                             </button>
@@ -715,7 +715,7 @@ export const UrbanScapes = () => {
                     {/* ===== DESKTOP: CAROUSEL */}
                     <div
                         ref={scrollRef}
-                        className="flex md:flex-row gap-3 flex-col md:overflow-x-hidden md:no-scrollbar max-w-7xl mx-auto"
+                        className="flex md:flex-row gap-6 flex-col md:overflow-x-hidden md:no-scrollbar max-w-7xl mx-auto"
                     >
                         <AnimatePresence mode="popLayout">
                             {normalArtworks.map((art, idx) => (
