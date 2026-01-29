@@ -150,7 +150,7 @@ export const About = () => {
                 >
                     Come walk with me on this journey to experience my art that exists at the edges of
                     crafted provocation of literal and non literal narratives and at times disquiet illusions
-                    challenging the viewers mental space with the ever changing realisation and perhaps
+                    challenging the viewers mental space with the ever changing realisation and perhaps of
                     the storyline itself.
                 </motion.p>
                 <div className="w-24 h-1 bg-[#D4AF37] mx-auto opacity-50" />

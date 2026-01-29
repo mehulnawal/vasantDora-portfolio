@@ -677,7 +677,7 @@ export const UrbanScapes = () => {
                                 It more often is organic development that was “architectured” by the users and common people. The seemingly chaotic aggregation of the habitat mass that exists in multiple layers beyond the mere brick and mortar of the physical façade and where the physical aspect serves the functional purpose of its subliminal construct.
                             </p>
                             <p className="text-base sm:text-lg leading-relaxed font-light  mt-2.5">
-                                At an entirely different level of perception to the cognitive construct of my “ trained “ understanding as an architect , I have also often been compelled to wonder of what lies beyond and within the habitat scapes and human tenements. It is here that my art points to a direction for the viewer to unravel the mysteries that is symbiotically woven in the physical construct and character , in the masses and voids , narrow lanes and by lanes of these organic settlements through the prism their own life experiences and interpretations
+                                At an entirely different level of perception to the cognitive construct of my “ trained “ understanding as an architect , I have also often been compelled to wonder of what lies beyond and within the habitat scapes and human tenements. It is here that my art points to a direction for the viewer to unravel the mysteries that is symbiotically woven in the physical construct and character , in the masses and voids , narrow lanes and by lanes of these organic settlements through the prism of their own life experiences and interpretations
                             </p>
                         </div>
                     </div>
