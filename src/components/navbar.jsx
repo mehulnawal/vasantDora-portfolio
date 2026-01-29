@@ -65,7 +65,7 @@ export const Navbar = () => {
                                         className={`absolute left-0 top-full mt-4 w-56 ${navBg} border ${borderColor} shadow-xl`}
                                     >
                                         <Link to="/urban-scapes" className={`block px-6 py-4 ${hoverColor}`}>
-                                            Urban Scapes
+                                            Habitat scapes
                                         </Link>
                                         <Link to="/samsara-series" className={`block px-6 py-4 ${hoverColor}`}>
                                             Samsara Series
@@ -142,7 +142,7 @@ export const Navbar = () => {
                                                 onClick={() => setMobileMenuOpen(false)}
                                                 className={`block text-md font-serif ${textColor}`}
                                             >
-                                                Urban Scapes
+                                                Habitat scapes
                                             </Link>
 
                                             <Link

@@ -133,7 +133,7 @@
 // //                         </h1>
 // //                         <div className="absolute inset-0 flex items-center justify-center -z-0 font-mistral">
 // //                             <div className="relative w-[55%] max-w-3xl h-55 sm:h-[300px] md:h-[360px] overflow-hidden shadow-2xl">
-// //                                 <img src={urbanScapesBannerImg} alt="Urban Scapes" className="w-full h-full object-cover" />
+// //                                 <img src={urbanScapesBannerImg} alt="Habitat scapes " className="w-full h-full object-cover" />
 // //                             </div>
 // //                         </div>
 // //                     </motion.div>
@@ -372,7 +372,7 @@
 //                             <span className={!isDark ? 'text-[#6B4A1E]' : 'text-white'}>UR</span>
 
 //                             <div className="relative mx-2 sm:mx-4 w-[50vw] max-w-2xl aspect-[16/9] overflow-hidden shadow-2xl flex items-center justify-center">
-//                                 <img src={urbanScapesBannerImg} alt="Urban Scapes" className="absolute inset-0 w-full h-full object-cover" />
+//                                 <img src={urbanScapesBannerImg} alt="Habitat scapes " className="absolute inset-0 w-full h-full object-cover" />
 //                                 {/* BAN SCAP overlaying the image */}
 //                                 <span className="relative z-10 text-white">BAN SCAP</span>
 //                             </div>
@@ -575,12 +575,12 @@ export const UrbanScapes = () => {
     return (
         <>
             <Helmet>
-                <title>Urban Scapes | Paintings Portfolio</title>
+                <title>Habitat scapes  | Paintings Portfolio</title>
                 <meta
                     name="description"
-                    content="Urban Scapes – A curated collection of original oil paintings presented in museum-style proportion."
+                    content="Habitat scapes  – A curated collection of original oil paintings presented in museum-style proportion."
                 />
-                <meta property="og:title" content="Urban Scapes Paintings" />
+                <meta property="og:title" content="Habitat scapes  Paintings" />
                 <meta property="og:type" content="website" />
             </Helmet>
 
@@ -599,7 +599,7 @@ export const UrbanScapes = () => {
                             {/* Background Decorative Text */}
                             <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
                                 <span className={`text-[18vw] md:text-[12vw] font-serif uppercase tracking-[0.2em] opacity-[0.03] whitespace-nowrap select-none ${isDark ? 'text-white' : 'text-black'}`}>
-                                    URBAN SCAPES
+                                    Habitat scapes
                                 </span>
                             </div>
 
