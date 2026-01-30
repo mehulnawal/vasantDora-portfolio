@@ -516,9 +516,9 @@ const UrbanScapesArtWorks = [
     { id: 5, image: urban5, size: "60 × 60 inches", vDim: 60, hDim: 60, description: "OIL ON CANVAS" },
     { id: 6, image: urban6, size: "48 × 36 inches", vDim: 48, hDim: 36, description: "OIL ON CANVAS" },
     { id: 7, image: urban7, size: "48 × 36 inches", vDim: 48, hDim: 36, description: "OIL ON CANVAS" },
-    { id: 8, image: urban8, size: "48 × 36 inches", vDim: 48, hDim: 48, description: "OIL ON CANVAS" },
+    { id: 8, image: urban8, size: "48 × 46 inches", vDim: 48, hDim: 48, description: "OIL ON CANVAS" },
     { id: 9, image: urban9, size: "48 × 96 inches", vDim: 48, hDim: 96, description: "OIL ON CANVAS" },
-    { id: 10, image: urban10, size: "48 × 36 inches", vDim: 48, hDim: 48, description: "OIL ON CANVAS" },
+    { id: 10, image: urban10, size: "48 × 48 inches", vDim: 48, hDim: 48, description: "OIL ON CANVAS" },
 ];
 
 export const UrbanScapes = () => {
