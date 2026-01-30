@@ -367,6 +367,9 @@ export const InspiredFigurative = () => {
                             <div className="text-white text-center space-y-1 md:space-y-2 pointer-events-none px-4">
                                 <h2 className="text-2xl md:text-3xl font-serif">{currentArtworks[expandedArtwork].title}</h2>
                                 <p className="text-[#D4AF37] text-lg md:text-xl">{currentArtworks[expandedArtwork].size}</p>
+                                <p className="text-sm opacity-60 uppercase mt-0.5">
+                                    {currentArtworks[expandedArtwork].description}
+                                </p>
                                 <p className="text-white/40 tracking-[0.3em] text-xs md:text-sm uppercase">
                                     {expandedArtwork + 1} / {currentArtworks.length}
                                 </p>
