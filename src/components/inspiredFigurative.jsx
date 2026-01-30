@@ -28,6 +28,7 @@ import AMRITA_PRITAM_SERIES3 from '../assets/images/inspiredFigurative/AMRITA_PR
 import KHALIL_GIBRAN_SERIES1 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES1.png';
 import KHALIL_GIBRAN_SERIES2 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES2.png';
 import KHALIL_GIBRAN_SERIES3 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES3_36x36_square.png';
+import KHALIL_GIBRAN_SERIES4 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES4.png';
 
 const ART_TABS = [
     {
@@ -36,7 +37,7 @@ const ART_TABS = [
         subtitle: "DRAUPADI SERIES",
         description: "She was born of the holy fire,“ She Said Colour me red “",
         images: [
-            { id: 1, image: DraupadiSeries1, size: "48 × 36 inches", description: "OIL ON CANVAS", title: " YAJNASENI" },
+            { id: 1, image: DraupadiSeries1, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "YAJNASENI" },
             { id: 2, image: DraupadiSeries2, size: "36 × 36 inches", description: "OIL ON CANVAS", title: "CHEER HARAN" },
             { id: 3, image: DraupadiSeries3, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "DRAUPADI’S PASSION" },
             { id: 4, image: DraupadiSeries4, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "SAIRANDHARI" },
@@ -71,9 +72,10 @@ const ART_TABS = [
         title: "Khalil Gibran Series",
         subtitle: "KHALIL GIBRAN SERIES",
         images: [
-            { id: 1, image: KHALIL_GIBRAN_SERIES1, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "Dark Moon" },
+            { id: 1, image: KHALIL_GIBRAN_SERIES1, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "DARK MOON" },
             { id: 2, image: KHALIL_GIBRAN_SERIES2, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "MARRIAGE" },
-            { id: 3, image: KHALIL_GIBRAN_SERIES3, size: "36 × 36 inches", description: "OIL ON CANVAS", title: "TEMPLE STEPS" }
+            { id: 3, image: KHALIL_GIBRAN_SERIES3, size: "36 × 36 inches", description: "OIL ON CANVAS", title: "TEMPLE STEPS" },
+            { id: 4, image: KHALIL_GIBRAN_SERIES4, size: "36 × 36 inches", description: "OIL ON CANVAS", title: "FRIENDSHIP" }
         ]
     },
 ];
@@ -262,7 +264,7 @@ export const InspiredFigurative = () => {
 
                 <div className="max-w-4xl mx-auto text-center mb-16">
                     <h3 className="font-mistral text-xl md:text-3xl font-serif mb-4 italic">{ART_TABS[activeTab].subtitle}</h3>
-                    <p className="font-mistral text-4xl leading-relaxed font-light opacity-80">{ART_TABS[activeTab].description}</p>
+                    <p className="font-mistral text-3xl md:text-4xl leading-relaxed font-light opacity-80">{ART_TABS[activeTab].description}</p>
                 </div>
 
                 {/* Gallery Carousel */}
