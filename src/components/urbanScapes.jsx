@@ -666,13 +666,13 @@ export const UrbanScapes = () => {
                     <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto ">
                         <div className={`${cardBg} p-8 border ${borderColor} shadow-2xl`}>
                             <p className="text-base sm:text-lg leading-relaxed font-light ">
-                                Through my Habitat Scape Series of art works, the artist in the architect , is exploring at an analogous level the unstructured and the organic construct of the Urban morphology in our towns and cities.
+                                Through my Habitat Scape Series of art works, the artist in the architect , is exploring at an analogous level the unstructured and the organic construct of the urban morphology in our towns and cities.
                             </p>
                             <p className="text-base sm:text-lg leading-relaxed font-light  mt-2.5">
                                 As a trained architect I would respond to order , symmetry, planned physical form and shapes, formal geometry, street manners , climate and any other validated and contextual visual narrative that would define contemporary architecture.
                             </p>
                             <p className="text-base sm:text-lg leading-relaxed font-light  mt-2.5">
-                                As an artist what fascinates me is the entirely different urban contextual form and visual narrative that exists more predominantly in the urban fabric of our towns and cities that are often referred to as unplanned development chaotic in its visual character.
+                                As an artist what fascinates me is the entirely different urban contextual form and visual narrative that exists more predominantly in the urban fabric of our towns and cities that are often referred to as unplanned development, chaotic in its visual character.
                             </p>
                         </div>
                         <div className={`${cardBg} p-8 border ${borderColor} shadow-2xl`}>

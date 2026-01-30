@@ -87,7 +87,7 @@ export const About = () => {
                     >
                         {/* Font size normalized to text-lg md:text-xl */}
                         <p className="text-lg md:text-xl font-serif leading-relaxed text-justify">
-                            I closed my consultancy business in 2022 and have been doing art full time.
+                            I closed my architecture consultancy business in 2022 and have been doing art full time.
                             It has since been an exciting journey...
                         </p>
                         {/* Font size normalized to text-lg md:text-xl */}

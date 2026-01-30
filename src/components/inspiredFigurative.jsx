@@ -262,7 +262,7 @@ export const InspiredFigurative = () => {
 
                 <div className="max-w-4xl mx-auto text-center mb-16">
                     <h3 className="font-mistral text-xl md:text-3xl font-serif mb-4 italic">{ART_TABS[activeTab].subtitle}</h3>
-                    <p className="font-mistral text-base md:text-3xl leading-relaxed font-light opacity-80">{ART_TABS[activeTab].description}</p>
+                    <p className="font-mistral text-4xl leading-relaxed font-light opacity-80">{ART_TABS[activeTab].description}</p>
                 </div>
 
                 {/* Gallery Carousel */}
