@@ -121,7 +121,7 @@ export const InspiredFigurative = () => {
     const cardBg = isDark ? 'bg-[#141414]' : 'bg-white';
 
     const visibleArtworks = [];
-    for (let i = 0; i < Math.min(3, currentArtworks.length); i++) {
+    for (let i = 0; i < Math.min(currentArtworks.length, currentArtworks.length); i++) {
         const index = (currentIndex + i) % currentArtworks.length;
         visibleArtworks.push({ ...currentArtworks[index], actualIndex: index });
     }
