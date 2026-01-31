@@ -28,7 +28,7 @@ import AMRITA_PRITAM_SERIES3 from '../assets/images/inspiredFigurative/AMRITA_PR
 import KHALIL_GIBRAN_SERIES1 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES1.png';
 import KHALIL_GIBRAN_SERIES2 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES2.png';
 import KHALIL_GIBRAN_SERIES3 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES3_36x36_square.png';
-import KHALIL_GIBRAN_SERIES4 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES4.png';
+import KHALIL_GIBRAN_SERIES4 from '../assets/images/inspiredFigurative/KHALIL_GIBRAN_SERIES/KHALIL_GIBRAN_SERIES4.jpg';
 
 const ART_TABS = [
     {
@@ -75,7 +75,7 @@ const ART_TABS = [
             { id: 1, image: KHALIL_GIBRAN_SERIES1, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "DARK MOON" },
             { id: 2, image: KHALIL_GIBRAN_SERIES2, size: "48 × 36 inches", description: "OIL ON CANVAS", title: "MARRIAGE" },
             { id: 3, image: KHALIL_GIBRAN_SERIES3, size: "36 × 36 inches", description: "OIL ON CANVAS", title: "TEMPLE STEPS" },
-            { id: 4, image: KHALIL_GIBRAN_SERIES4, size: "36 × 36 inches", description: "OIL ON CANVAS", title: "FRIENDSHIP" }
+            { id: 4, image: KHALIL_GIBRAN_SERIES4, size: "48 × 72 inches", description: "OIL ON CANVAS", title: "FRIENDSHIP" }
         ]
     },
 ];
