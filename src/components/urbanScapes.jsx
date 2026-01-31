@@ -700,7 +700,7 @@ export const UrbanScapes = () => {
 
                 {/* ================= DESKTOP CAROUSEL ================= */}
                 <section className="mx-auto px-6">
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center justify-between mb-2 lg:mb-0">
                         <h2 className="text-4xl font-serif">Gallery</h2>
                         <div className="hidden md:flex gap-8">
                             <button onClick={prevSlide} className="p-4">
@@ -712,7 +712,7 @@ export const UrbanScapes = () => {
                         </div>
                     </div>
 
-                    <p className="text-xl font-serif">Tap the image to view details</p>
+                    <p className="text-xl font-serif mb-2 lg:mb-0">Tap the image to view details</p>
 
                     {/* ===== DESKTOP: CAROUSEL */}
                     <div

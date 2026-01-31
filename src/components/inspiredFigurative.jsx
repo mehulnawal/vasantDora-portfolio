@@ -121,7 +121,7 @@ export const InspiredFigurative = () => {
     const cardBg = isDark ? 'bg-[#141414]' : 'bg-white';
 
     const visibleArtworks = [];
-    for (let i = 0; i < Math.min(currentArtworks.length, currentArtworks.length); i++) {
+    for (let i = 0; i < Math.min(3, currentArtworks.length); i++) {
         const index = (currentIndex + i) % currentArtworks.length;
         visibleArtworks.push({ ...currentArtworks[index], actualIndex: index });
     }
@@ -268,13 +268,15 @@ export const InspiredFigurative = () => {
                 </div>
 
                 {/* Gallery Carousel */}
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center justify-between mb-2 lg:mb-0">
                     <h2 className="text-3xl md:text-4xl font-serif">Gallery</h2>
                     <div className="flex gap-4">
                         <button onClick={prevSlide} className={`p-3 md:p-4 rounded-full border-2 ${borderColor} ${cardBg} shadow-lg hover:scale-105 transition-transform`}><ChevronLeft size={20} /></button>
                         <button onClick={nextSlide} className={`p-3 md:p-4 rounded-full border-2 ${borderColor} ${cardBg} shadow-lg hover:scale-105 transition-transform`}><ChevronRight size={20} /></button>
                     </div>
                 </div>
+
+                <p className="text-lg font-serif mb-2 lg:mb-5">Tap the image to view details</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     <AnimatePresence mode="popLayout">
@@ -343,7 +345,7 @@ export const InspiredFigurative = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[200] flex items-center justify-center bg-black/98 p-4 md:p-12"
+                        className="fixed inset-0 z-200 flex items-center justify-center bg-black/98 p-4 md:p-12"
                     >
                         <div className="absolute inset-0" onClick={() => setExpandedArtwork(null)} />
 

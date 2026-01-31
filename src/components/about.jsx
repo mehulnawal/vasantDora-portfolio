@@ -114,7 +114,7 @@ export const About = () => {
             {/* 4. AUTOMATIC & MANUAL CAROUSEL GALLERY */}
             <section className="container mx-auto px-4 md:px-8 mb-15">
                 <div className="flex items-center justify-between mb-12">
-                    <h2 className="text-3xl font-serif uppercase tracking-widest">Behind the canvas</h2>
+                    <h2 className="text-3xl font-serif uppercase tracking-widest">Conversation with the canvas</h2>
                     <div className="flex gap-4">
                         <button onClick={prevSlide} className={`p-4 rounded-full border ${borderColor} hover:bg-[#D4AF37] hover:text-black transition-all`}><ChevronLeft size={20} /></button>
                         <button onClick={nextSlide} className={`p-4 rounded-full border ${borderColor} hover:bg-[#D4AF37] hover:text-black transition-all`}><ChevronRight size={20} /></button>

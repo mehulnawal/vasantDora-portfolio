@@ -326,7 +326,7 @@ export const SamsaraSeries = () => {
 
             {/* ================= DESKTOP CAROUSEL ================= */}
             <section className="mx-auto px-6">
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center justify-between mb-2 lg:mb-0">
                     <h2 className="text-4xl font-serif">Gallery</h2>
                     <div className="hidden md:flex gap-8">
                         <button onClick={prevSlide} className="p-4">
@@ -337,6 +337,8 @@ export const SamsaraSeries = () => {
                         </button>
                     </div>
                 </div>
+
+                <p className="text-xl font-serif mb-2 lg:mb-5">Tap the image to view details</p>
 
                 {/* ===== DESKTOP: CAROUSEL / MOBILE: VERTICAL ===== */}
                 <div
